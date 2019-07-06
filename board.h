@@ -26,4 +26,6 @@ private:
 
 
 };
+
+#include "btNode.h"
 #endif
