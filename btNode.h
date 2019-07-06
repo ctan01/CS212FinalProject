@@ -13,13 +13,13 @@ class btNode{
       right = NULL;
       parent = NULL;
     }
-   Item& data() { return data;}
-   btNode* left(){ return left;}
-   btNode* right(){ return right;}
-   void set_data(const Item& entry){ data = entry;}
-   void set_left(btNode* newLeft){ left = newLeft;}
-   void set_right(btNode* newRight){ right = newRight;}
-   bool isLeaf() const{ return (left==NULL) && (right==NULL);}
+   Item getData() { return data;}
+   btNode* getLeft(){ return left;}
+   btNode* getRight(){ return right;}
+   void setData(const Item& entry){ data = entry;}
+   void setLeft(btNode* inLeft){ left = inLeft;}
+   void setRight(btNode* inRight){ right = inRight;}
+   bool isLeaf() const{ return (getLeft()==NULL) && (getRight()==NULL);}
     
   private:
     Item data;
