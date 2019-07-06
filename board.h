@@ -22,6 +22,7 @@ public:
    void remove(int x, int y){ board[x][y] = 0;}
    bool isValid(int x, inty){ return (x+y)%2 !=0;}
    bool isEmpty(int x, int y){ return board[x][y] == 0;}
+   
 
 private:
 	static int board[8][8];
