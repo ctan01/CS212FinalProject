@@ -8,17 +8,19 @@ template <class Item>
 class btNode{
   public:
     btNode(){
-      data = Item( );
+      const Item& data = Item( ),
       left = NULL;
       right = NULL;
       parent = NULL;
     }
-    btNode(const Item& inData, btNode *inLeft, btNode *inRight, btNode *inParent){
-      data = inDatal
-      left = inleft;
-      right = inRight;
-      parent = inParent;
-    }
+   Item& data() { return data;}
+   btNode* left(){ return left;}
+   btNode* right(){ return right;}
+   void set_data(const Item& entry){ data = entry;}
+   void set_left(btNode* newLeft){ left = newLeft;}
+   void set_right(btNode* newRight){ right = newRight;}
+   bool isLeaf() const{ return (left==NULL) && (right==NULL);}
+    
   private:
     Item data;
     btNode *left;
