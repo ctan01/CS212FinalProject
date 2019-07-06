@@ -8,7 +8,7 @@ template <class Item>
 class btNode{
   public:
     btNode(){
-      const Item& data = Item( ),
+      data = Item( );
       left = NULL;
       right = NULL;
       parent = NULL;
