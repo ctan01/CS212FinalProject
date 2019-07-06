@@ -13,6 +13,12 @@ class btNode{
       right = NULL;
       parent = NULL;
     }
+    btNode(const Item& inData, btNode *inLeft, btNode *inRight, btNode *inParent){
+      data = inDatal
+      left = inleft;
+      right = inRight;
+      parent = inParent;
+    }
   private:
     Item data;
     btNode *left;
