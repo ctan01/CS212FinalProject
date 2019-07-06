@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+
 class board{
 
 public:
@@ -26,5 +27,4 @@ private:
 
 };
 
-#include "btNode.h"
 #endif
