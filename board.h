@@ -25,7 +25,7 @@ public:
     void moveRightDown(int x, int y){
 	    //Destiniation unvaild
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
-	    else if((x+1)>7||(y+1)>7) {cout<< "Invalid Move!";
+	    else if(x == 7 || y == 7) {cout<< "Invalid Move!";
 	    else if(isEmpty(x+1, y+1) == false) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
@@ -36,7 +36,7 @@ public:
     void moveLeftDown(int x, int y){
 	    //Destiniation unvaild
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
-	    else if((x+1)>7||(y-1)<0) {cout<< "Invalid Move!";}
+	    else if(x == 0 || y == 7) {cout<< "Invalid Move!";}
 	    else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
@@ -69,7 +69,7 @@ public:
     void jumpRightDown(int x, int y){
 	    //Destiniation unvaild
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";} 
-	    else if((x+2)>7||(y+2)>7) {cout<< "Invalid Move!";}
+	    else if((x+2)>=7||(y+2)>=7) {cout<< "Invalid Move!";}
 	    else if(boardArray[x+1][y+1] == 1) {cout<< "Invalid Move!";}  
 	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
