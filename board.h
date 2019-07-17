@@ -27,7 +27,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
 	    else if((x+1)>7||(y+1)>7) {cout<< "Invalid Move!";
 	    else if(isEmpty(x+1, y+1) == false) {cout<< "Invalid Move!"; return;}
-	    else{
+	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x+1][y+1] = 1;
 	    }
@@ -38,7 +38,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
 	    else if((x+1)>7||(y-1)<0) {cout<< "Invalid Move!"; return;}
 	    else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!"; return;}
-	    else{
+	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x+1][y-1] = 1;
 	    }
@@ -49,7 +49,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
 	    elseif((x-1)<0||(y+1)>7) {cout<< "Invalid Move!"; return;}
 	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!"; return;}
-	    else{
+	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x-1][y+1] = 2;
 	    }
@@ -60,7 +60,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
 	    if((x-1)<0||(y-1)<0) {cout<< "Invalid Move!"; return;}
 	    if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!"; return;}
-	    else{
+	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x-1][y-1] = 2;
 	    }
@@ -71,7 +71,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
 	    else if((x+2)>7||(y+2)>7) {cout<< "Invalid Move!"; return;}
 	    else if(boardArray[x+1][y+1] == 1) {cout<< "Invalid Move!"; return;}  
-	    else{
+	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    int newX = x+2;
 		    int newY = y+2;
@@ -91,7 +91,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
 	    else if((x+2)>7||(y-2)<0) {cout<< "Invalid Move!"; return;}
 	    else if(boardArray[x+2][y-2] == 1) {cout<< "Invalid Move!"; return;}
-	    else{
+	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    boardArray[x+2][y-2] = 1;
 		    remove(x+1,y-1);
@@ -103,7 +103,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
 	    else if((x-2)<0||(y+2)>7) {cout<< "Invalid Move!"; return;}
 	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!"; return;}
-	    else{
+	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    boardArray[x-2][y+2] = 2;
 		    remove(x-1,y+1);
@@ -115,7 +115,7 @@ public:
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
 	    else if((x-2)<0||(y-2)<0) {cout<< "Invalid Move!"; return;}
 	    else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!"; return;}
-	    else{ 
+	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    boardArray[x-2][y-2] = 2;
 		    remove(x-1,y-1);
