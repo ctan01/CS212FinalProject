@@ -36,7 +36,7 @@ public:
     void moveLeftDown(int x, int y){
 	    //Destiniation unvaild
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
-	    else if(x == 0 || y == 7) {cout<< "Invalid Move!";}
+	    else if(x == 7 || y == 0) {cout<< "Invalid Move!";}
 	    else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
@@ -47,7 +47,7 @@ public:
     void moveRightUp(int x, int y){
 	    //Destiniation unvaild
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
-	    elseif((x-1)<0||(y+1)>7) {cout<< "Invalid Move!";}
+	    elseif(x == 0 || y == 7)cout<< "Invalid Move!";}
 	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
@@ -58,7 +58,7 @@ public:
     void moveLeftUp(int x, int y){
 	    //Destiniation unvaild
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
-	    if((x-1)<0||(y-1)<0) {cout<< "Invalid Move!";}
+	    if(x == 0 || y == 0) {cout<< "Invalid Move!";}
 	    if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
