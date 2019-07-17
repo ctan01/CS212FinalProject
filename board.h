@@ -67,7 +67,7 @@ public:
 	    //invaild conditions
 	    if(isVaild(x,y) == false){cout<< "Invalid Input!";}
 	    else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
-	    else if(x == 7 || y == 7){cout<< "Invalid Move!";
+	    else if(x == 7 || y == 7){cout<< "Invalid Move!";}
 	    else if(isEmpty(x+1, y+1) == false){cout<< "Invalid Move!";}
 	    //move the piece
 	    else{
