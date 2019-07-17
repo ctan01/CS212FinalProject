@@ -129,10 +129,10 @@ public:
 		    boardArray[newX][newY] = 1;
 		    remove(x+1,y+1);
 		    //Check if the piece can jump again
-		    if(isLeftDown2 == true){
+		    if(isLeftDown2(newX, newY) == true){
 			jumLeftDown(newX, newY);
 		    }
-		    if(isRightDown2 == true){
+		    if(isRightDown2(newX, newY) == true){
 			jumpRightDown(newX, newY);
 		    }
 	    }
@@ -147,13 +147,15 @@ public:
 	    //move the piece and delete the opponents piece
 	    else{
 		    remove(x,y);
-		    boardArray[x+2][y-2] = 1;
+		    int newX = x+2;
+		    int newY = y-2;
+		    boardArray[newX][newY] = 1;
 		    remove(x+1,y-1);
 		    //Check if the piece can jump again
-		    if(isLeftDown2 == true){
+		    if(isLeftDown2(newX, newY) == true){
 			jumLeftDown(newX, newY);
 		    }
-		    if(isRightDown2 == true){
+		    if(isRightDown2(newX, newY) == true){
 			jumpRightDown(newX, newY);
 		    }
 	    }
@@ -168,13 +170,15 @@ public:
 	    //move the piece and delete the opponents piece
 	    else{
 		    remove(x,y);
-		    boardArray[x-2][y+2] = 2;
+		    int newX = x-2;
+		    int newY = y+2;
+		    boardArray[newX][newY] = 2;
 		    remove(x-1,y+1);
 		    //Check if the piece can jump again
-		    if(isLeftUp1 == true){
+		    if(isLeftUp1(newX, newY) == true){
 			jumLeftUp(newX, newY);
 		    }
-		    if(isRightUp1 == true){
+		    if(isRightUp1(newX, newY) == true){
 			jumpRightUp(newX, newY);
 		    }
 	    }
@@ -189,13 +193,15 @@ public:
 	    //move the piece and delete the opponents piece
 	    else{
 		    remove(x,y);
-		    boardArray[x-2][y-2] = 2;
+		    int newX = x-2;
+		    int newY = y-2;
+		    boardArray[newX][newY] = 2;
 		    remove(x-1,y-1);
 		    //Check if the piece can jump again
-		    if(isLeftUp1 == true){
+		    if(isLeftUp1(newX, newY) == true){
 			jumLeftUp(newX, newY);
 		    }
-		    if(isRightUp1 == true){
+		    if(isRightUp1(newX, newY) == true){
 			jumpRightUp(newX, newY);
 		    }
 	    }
