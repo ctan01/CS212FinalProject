@@ -64,7 +64,7 @@ public:
 	    boardArray[x-1][y-1] = 2;
     }
 	
-    void jumpDownRight(int x, int y){
+    void jumpRightDown(int x, int y){
 	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
 	    if((x+2)>7||(y+2)>7) {cout<< "Invalid Move!"; return;}
 	   
@@ -73,6 +73,12 @@ public:
 	    remove(x,y);
 	    boardArray[x+2][y+2] = 1;
 	    remove(x+1,y+1);
+	    if(isLeftDown2 == true){
+	    	jumLeftDown(x+2, y+2);
+	    }
+	    if(isRightDown2 == true){
+	    	jumpRightDown(x+2, y+2);
+	    }
     }
 
     void jumpLeftDown(int x, int y){
