@@ -108,11 +108,14 @@ public:
 	    remove(x-1,y-1);
     }
 
-	bool isValid(int x, int y){return (x+y)%2 != 0;}
+    bool isValid(int x, int y){return (x+y)%2 != 0;}
     bool isEmpty(int x, int y){return board[x][y] == 0;}
     bool is1(int x, int y){return board[x][y] == 1;}
     bool is2(int x, int y){return board[x][y] == 2;}
-   
+    bool isLeftUp1(int x, int y){return board[x-1][y-1] == 1;}
+    bool isRightUp1(int x, int y){return board[x-1][y+1] == 1;}
+    bool isLeftDown2(int x, int y){return board[x+1][y-1] == 2;}
+    bool isLeftUp2(int x, int y){return board[x+1][y+1] == 2;}
 
 private:
 	static int boardArray[8][8];
