@@ -7,20 +7,40 @@ using namespace std;
 class board{
 
 public:
-	//CONSTURCTOR
-	board(){
+    //CONSTURCTOR
+    board(){
 
-		board = {
-			{0,1,0,1,0,1,0,1},
-			{1,0,1,0,1,0,1,0},
-			{0,1,0,1,0,1,0,1},
-			{0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0},
-			{2,0,2,0,2,0,2,0},
-			{0,2,0,2,0,2,0,2},
-			{2,0,2,0,2,0,2,0}
+	board = {
+		{0,1,0,1,0,1,0,1},
+		{1,0,1,0,1,0,1,0},
+		{0,1,0,1,0,1,0,1},
+		{0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0},
+		{2,0,2,0,2,0,2,0},
+		{0,2,0,2,0,2,0,2},
+		{2,0,2,0,2,0,2,0}
 		};
-	}
+    }
+
+    void initialize board(){
+	    for(int i = 0; i < 8; i++){
+	    	for(int j = 0; j < 8; j++){
+			boardArray[i][j] = 0;
+			if(isValid(i, j)){
+				if(i == 3 || i == 4){
+					boardArray[i][j] = 0;
+				}
+				else if(i > 4){
+					boardArray[i][j] = 2;
+				}
+				else{
+					boardArray[i][j] = 1;
+				}
+			}
+		}
+		cout << endl;
+	    }    
+    }	
 	
     void moveRightDown(int x, int y){
 	    //Destiniation unvaild
