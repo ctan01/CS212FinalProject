@@ -23,9 +23,9 @@ public:
 
    void moveRightDown(int x, int y){
 	   if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
-	   if((x+1)>7||(y+1)>7) {cout<< "Invalid Move!"; return;}
+	   if((x+1)>7||(y+1)>7) {cout<< "Invalid Move!";}
 	   
-	   if(boardArray[x+1][y+1] == 1) {cout<< "Invalid Move!"; return;}
+	   if(isEmpty(x+1, y+1) == false) {cout<< "Invalid Move!"; return;}
 	   
 	   remove(x,y);
 	   boardArray[x+1][y+1] = 1;
@@ -105,8 +105,10 @@ public:
 	   remove(x-1,y-1);
    }
 
-   bool isValid(int x, int y){ return (x+y)%2 !=0;}
-   bool isEmpty(int x, int y){ return board[x][y] == 0;}
+   bool isValid(int x, int y){return (x+y)%2 !=0;}
+   bool isEmpty(int x, int y){return board[x][y] == 0;}
+   bool is1(int x, int y){return board[x][y] == 1;}
+   bool is2(int x, int y){return board[x][y] == 1;}
    
 
 private:
