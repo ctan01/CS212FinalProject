@@ -24,9 +24,9 @@ public:
 	
     void moveRightDown(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
 	    else if((x+1)>7||(y+1)>7) {cout<< "Invalid Move!";
-	    else if(isEmpty(x+1, y+1) == false) {cout<< "Invalid Move!"; return;}
+	    else if(isEmpty(x+1, y+1) == false) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x+1][y+1] = 1;
@@ -35,9 +35,9 @@ public:
 	
     void moveLeftDown(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
-	    else if((x+1)>7||(y-1)<0) {cout<< "Invalid Move!"; return;}
-	    else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!"; return;}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
+	    else if((x+1)>7||(y-1)<0) {cout<< "Invalid Move!";}
+	    else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x+1][y-1] = 1;
@@ -46,9 +46,9 @@ public:
 	
     void moveRightUp(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
-	    elseif((x-1)<0||(y+1)>7) {cout<< "Invalid Move!"; return;}
-	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!"; return;}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
+	    elseif((x-1)<0||(y+1)>7) {cout<< "Invalid Move!";}
+	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x-1][y+1] = 2;
@@ -57,9 +57,9 @@ public:
 	
     void moveLeftUp(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";}
-	    if((x-1)<0||(y-1)<0) {cout<< "Invalid Move!"; return;}
-	    if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!"; return;}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
+	    if((x-1)<0||(y-1)<0) {cout<< "Invalid Move!";}
+	    if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	    else{//move the piece
 		    remove(x,y);
 		    boardArray[x-1][y-1] = 2;
@@ -68,9 +68,9 @@ public:
 	
     void jumpRightDown(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
-	    else if((x+2)>7||(y+2)>7) {cout<< "Invalid Move!"; return;}
-	    else if(boardArray[x+1][y+1] == 1) {cout<< "Invalid Move!"; return;}  
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";} 
+	    else if((x+2)>7||(y+2)>7) {cout<< "Invalid Move!";}
+	    else if(boardArray[x+1][y+1] == 1) {cout<< "Invalid Move!";}  
 	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    int newX = x+2;
@@ -89,9 +89,9 @@ public:
 
     void jumpLeftDown(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
-	    else if((x+2)>7||(y-2)<0) {cout<< "Invalid Move!"; return;}
-	    else if(boardArray[x+2][y-2] == 1) {cout<< "Invalid Move!"; return;}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";} 
+	    else if((x+2)>7||(y-2)<0) {cout<< "Invalid Move!";}
+	    else if(boardArray[x+2][y-2] == 1) {cout<< "Invalid Move!";}
 	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    boardArray[x+2][y-2] = 1;
@@ -108,9 +108,9 @@ public:
 	
     void jumpRightUp(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
-	    else if((x-2)<0||(y+2)>7) {cout<< "Invalid Move!"; return;}
-	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!"; return;}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";} 
+	    else if((x-2)<0||(y+2)>7) {cout<< "Invalid Move!";}
+	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    boardArray[x-2][y+2] = 2;
@@ -127,9 +127,9 @@ public:
 	
     void jumpLeftUp(int x, int y){
 	    //Destiniation unvaild
-	    if(isVaild(x,y) == false) {cout<< "Invalid Move!";} 
-	    else if((x-2)<0||(y-2)<0) {cout<< "Invalid Move!"; return;}
-	    else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!"; return;}
+	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";} 
+	    else if((x-2)<0||(y-2)<0) {cout<< "Invalid Move!";}
+	    else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	    else{//move the piece and delete the opponents piece
 		    remove(x,y);
 		    boardArray[x-2][y-2] = 2;
