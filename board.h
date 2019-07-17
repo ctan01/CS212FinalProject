@@ -116,11 +116,11 @@ public:
 		    boardArray[x-2][y+2] = 2;
 		    remove(x-1,y+1);
 		    //Check if the piece can jump again
-		    if(isLeftDown2 == true){
-			jumLeftDown(newX, newY);
+		    if(isLeftUp1 == true){
+			jumLeftUp(newX, newY);
 		    }
-		    if(isRightDown2 == true){
-			jumpRightDown(newX, newY);
+		    if(isRightUp1 == true){
+			jumpRightUp(newX, newY);
 		    }
 	    }
     }
@@ -135,11 +135,11 @@ public:
 		    boardArray[x-2][y-2] = 2;
 		    remove(x-1,y-1);
 		    //Check if the piece can jump again
-		    if(isLeftDown2 == true){
-			jumLeftDown(newX, newY);
+		    if(isLeftUp1 == true){
+			jumLeftUp(newX, newY);
 		    }
-		    if(isRightDown2 == true){
-			jumpRightDown(newX, newY);
+		    if(isRightUp1 == true){
+			jumpRightUp(newX, newY);
 		    }
 	    }
     }
