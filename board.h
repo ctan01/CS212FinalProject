@@ -71,13 +71,15 @@ public:
 	    if(boardArray[x+1][y+1] == 1) {cout<< "Invalid Move!"; return;}  
 	   
 	    remove(x,y);
-	    boardArray[x+2][y+2] = 1;
+	    int newX = x+2;
+	    int newY = y+2;
+	    boardArray[newX][newY] = 1;
 	    remove(x+1,y+1);
 	    if(isLeftDown2 == true){
-	    	jumLeftDown(x+2, y+2);
+	    	jumLeftDown(newX, newY);
 	    }
 	    if(isRightDown2 == true){
-	    	jumpRightDown(x+2, y+2);
+	    	jumpRightDown(newX, newY);
 	    }
     }
 
