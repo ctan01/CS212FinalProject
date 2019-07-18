@@ -178,22 +178,22 @@ class treeNode{
     
    }
            
-  treeNode** bfs(treeNode* root){
+  treeNode** bfs(treeNode* inParent){
     
     queue<board> bfsQueue;
-    bfsQueue.push(parent);
+    bfsQueue.push(root);
     
-    while( !bfsQueue.top().winningState())
+    while( !bfsQueue.front().winningState())
     {
-      genChild(bfsQueue.top());
+      genChild(bfsQueue.top()); //if the front Node in queue is not in a winning state, then generate all children of this Node.
       
-        for(int i=0;i<numChildren;i++){
-          
-       bfsQueue.push(children [i])
-       
-        }
+        for(int i=0;i<numChildren;i++)
+          {
+           bfsQueue.push(children [i]) // push all the generated children of inParent into the queue
+          }
       
-        bfsQueue.pop();
+      bfsQueue.pop();   // now we can pop the front Node that is not in a winning state.
+     
     }      
   }
               
