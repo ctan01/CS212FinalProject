@@ -93,7 +93,7 @@ public:
 	    //invaild conditions
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
 	    else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
-	    elseif(x == 0 || y == 7)cout<< "Invalid Move!";}
+	    else if(x == 0 || y == 7)cout<< "Invalid Move!";}
 	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	    //move the piece
 	    else{
@@ -106,8 +106,8 @@ public:
 	    //invaild conditions
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
 	    else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
-	    if(x == 0 || y == 0) {cout<< "Invalid Move!";}
-	    if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
+	    else if(x == 0 || y == 0) {cout<< "Invalid Move!";}
+	    else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	    //move the piece
 	    else{
 		    remove(x,y);
