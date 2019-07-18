@@ -49,7 +49,15 @@ public:
     void jumpRightUp(int x, int y);
     void jumpLeftUp(int x, int y);
 
-
+    //CHECK IF THE PIECE CAN JUMP OR MOVE
+    bool canMoveRightUp(int x, int y);
+    bool canMoveLefttUp(int x, int y);
+    bool canMoveRightDown(int x, int y);
+    bool canMoveLeftDown(int x, int y);
+    bool canJumpRightUp(int x, int y);
+    bool canJumpLeftUp(int x, int y);
+    bool canJumpRightDown(int x, int y);
+    bool canJumpLeftDown(int x, int y);
 
 
 private:
