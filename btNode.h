@@ -11,68 +11,67 @@ class btNode{
   public:
     btNode(){
     numChildren = 0;
-    capChildren = 30;
+    capChildren = 100;
     data = board();
     parent = new btNode;
     children = new btNode*[capChildren];
     }
   
-  void setChild(btNode* inParent, btNode** entry, int pos){
-   (*parent)-> children[pos] = entry;
-  }
+  void setChild( btNode** entry, int pos ){   children[pos] = entry; }
   
-   void addChild(btNode* inParent, btNode** entry, int pos){
+  
+  void addChild( btNode** entry ){
      
-     (*inParent)-> children[pos+1] = entry;
+     children[numChildren] = entry;
       numChildren++;
    }
   
-   btNode** getChild( int y){return (*parent) -> children [y];}
+  btNode** getChild( int y){return children [y];}
   
-   btNode** getAllChild(){
+  
+  btNode** getAllChild(){
      
      for( int i = 0; i<numChildren;i++){
        
-        return (*parent) ->children[i];}
+        return children[i];}
      
    }
  
-   void generateChildren(btNode* input){
+  
+  btNode** genChild(btNode* input){
      
-     while((*input)->data.
+     
      
      
      
      
    }
            
-  btNode** bfs(btNode* parent){
+  btNode** bfs(btNode* root){
     
     queue<board> bfsQueue;
     bfsQueue.push(parent);
-    size_t countChild=0;
     
-    while( countChild < parent.numChildren)
+    while( !bfsQueue.top().winningState())
     {
-        if((*parent)-> children[countChild].winningState())
-        
-           { 
-             return (*parent)-> children[numChildren];
-             break;
-           }
-        
-       bfsQueue.push((*parent)->children [countChild])
-       countChild++;
-    }       
+      genChild(bfsQueue.top());
+      
+        for(int i=0;i<numChildren;i++){
+          
+       bfsQueue.push(children [i])
+       
+        }
+      
+        bfsQueue.pop();
+    }      
+  }
+              
+  void dfs(btNode* parent){
     
-    bfsQueue.pop();
     
-    wwhile(!bfsQueue.empty())
-      {
-          bfs(bfsQueue.top(); 
-      }
-         
-              }
+    
+    
+  }
            
   private:
     board data;
