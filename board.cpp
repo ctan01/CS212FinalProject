@@ -2,8 +2,8 @@
 using namespace std;
 
 void Board::initializeBoard(){
-	    for(int i = 0; i < 8; i++){
-	    	for(int j = 0; j < 8; j++){
+	for(int i = 0; i < 8; i++){
+		for(int j = 0; j < 8; j++){
 			boardArray[i][j] = 0;
 			if(isValid(i, j)){
 				if(i == 3 || i == 4){
