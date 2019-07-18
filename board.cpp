@@ -53,7 +53,8 @@ void Board::moveRightDown(int x, int y){
 	}
 }
 
-bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);}
+//check to see if the piece can move Right Downward without jumping.
+bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);} 
 
 void Board::moveLeftDown(int x, int y){
 	//invaild conditions
@@ -124,6 +125,9 @@ void Board::jumpRightDown(int x, int y){
 	}
 }
 
+//check to see if it can jump Right downward. 
+bool Board::canJumpRightDown(int x, int y){ return board[x+1][y+1]==2;} 
+
 void Board::jumpLeftDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
@@ -146,6 +150,8 @@ void Board::jumpLeftDown(int x, int y){
 		}
 	}
 }
+
+bool Board::canJumpLeftDown(int x, int y){ return board[x+1][y-1]==2;} 
 
 void Board::jumpRightUp(int x, int y){
 	//invaild conditions
@@ -170,6 +176,8 @@ void Board::jumpRightUp(int x, int y){
 	}
 }
 
+bool Board::canJumpRightUp(int x, int y){ return board[x-1][y+1]==1;} 
+
 void Board::jumpLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
@@ -192,3 +200,5 @@ void Board::jumpLeftUp(int x, int y){
 		}
 	}
 }
+
+bool Board::canJumpLeftUp(int x, int y){ return board[x-1][y-1]==1;}
