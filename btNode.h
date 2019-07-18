@@ -2,31 +2,84 @@
 #define __BTNODE_H__
 #include <iostream>
 #include <cstdlib>
+#include "board.h"
+#include <queue>
+
 using namespace std;
 
-template <class Item>
 class btNode{
   public:
     btNode(){
-      const Item& data = Item( ),
-      left = NULL;
-      right = NULL;
-      parent = NULL;
+    numChildren = 0;
+    capChildren = 30;
+    data = board();
+    parent = new btNode;
+    children = new btNode*[capChildren];
     }
-   Item getData() { return data;}
-   btNode* getLeft(){ return left;}
-   btNode* getRight(){ return right;}
-   void setData(const Item& entry){ data = entry;}
-   void setLeft(btNode* inLeft){ left = inLeft;}
-   void setRight(btNode* inRight){ right = inRight;}
-   bool isLeaf() const{ return (getLeft()==NULL) && (getRight()==NULL);}
+  
+  void setChild(btNode* inParent, btNode** entry, int pos){
+   (*parent)-> children[pos] = entry;
+  }
+  
+   void addChild(btNode* inParent, btNode** entry, int pos){
+     
+     (*inParent)-> children[pos+1] = entry;
+      numChildren++;
+   }
+  
+   btNode** getChild( int y){return (*parent) -> children [y];}
+  
+   btNode** getAllChild(){
+     
+     for( int i = 0; i<numChildren;i++){
+       
+        return (*parent) ->children[i];}
+     
+   }
+ 
+   void generateChildren(btNode* input){
+     
+     while((*input)->data.
+     
+     
+     
+     
+   }
+           
+  btNode** bfs(btNode* parent){
     
+    queue<board> bfsQueue;
+    bfsQueue.push(parent);
+    size_t countChild=0;
+    
+    while( countChild < parent.numChildren)
+    {
+        if((*parent)-> children[countChild].winningState())
+        
+           { 
+             return (*parent)-> children[numChildren];
+             break;
+           }
+        
+       bfsQueue.push((*parent)->children [countChild])
+       countChild++;
+    }       
+    
+    bfsQueue.pop();
+    
+    wwhile(!bfsQueue.empty())
+      {
+          bfs(bfsQueue.top(); 
+      }
+         
+              }
+           
   private:
-    Item data;
-    btNode *left;
-    btNode *right;
+    board data;
+    size_t numChildren;
+    size_t capChildren;
     btNode *parent;
+    btNode **children;
 };
 
-#include "btNode.cpp"
 #endif
