@@ -53,6 +53,8 @@ void Board::moveRightDown(int x, int y){
 	}
 }
 
+bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);}
+
 void Board::moveLeftDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
@@ -65,6 +67,8 @@ void Board::moveLeftDown(int x, int y){
 		boardArray[x+1][y-1] = 1;
 	}
 }
+
+bool Board::canMoveLeftDown(int x, int y){ return isEmpty(x+1,y-1);}
 
 void Board::moveRightUp(int x, int y){
 	//invaild conditions
@@ -79,6 +83,9 @@ void Board::moveRightUp(int x, int y){
 	}
 }
 
+
+bool Board::canMoveRightUp(int x, int y){ return isEmpty(x-1,y+1);}
+
 void Board::moveLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
@@ -91,6 +98,8 @@ void Board::moveLeftUp(int x, int y){
 		boardArray[x-1][y-1] = 2;
 	}
 }
+
+bool Board::canMoveLefttUp(int x, int y){ return isEmpty(x-1,y-1);}
 
 void Board::jumpRightDown(int x, int y){
 	//invaild conditions
