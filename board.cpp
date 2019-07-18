@@ -1,6 +1,26 @@
 #include "board.h"
 using namespace std;
 
+void Board::initializeBoard(){
+	    for(int i = 0; i < 8; i++){
+	    	for(int j = 0; j < 8; j++){
+			boardArray[i][j] = 0;
+			if(isValid(i, j)){
+				if(i == 3 || i == 4){
+					boardArray[i][j] = 0;
+				}
+				else if(i > 4){
+					boardArray[i][j] = 2;
+				}
+				else{
+					boardArray[i][j] = 1;
+				}
+			}
+		}
+		cout << endl;
+	    }
+    }
+
 void Board::printBoard(){
     	cout << "|----|----|----|----|----|----|----|----|" << endl;
 	for(int i = 0; i < 8; i++){
@@ -33,7 +53,7 @@ void Board::moveRightDown(int x, int y){
 	}
 }
 
-void moveLeftDown(int x, int y){
+void Board::moveLeftDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
@@ -46,7 +66,7 @@ void moveLeftDown(int x, int y){
 	}
 }
 
-void moveRightUp(int x, int y){
+void Board::moveRightUp(int x, int y){
 	//invaild conditions
 	if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
@@ -59,7 +79,7 @@ void moveRightUp(int x, int y){
 	}
 }
 
-void moveLeftUp(int x, int y){
+void Board::moveLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
@@ -72,7 +92,7 @@ void moveLeftUp(int x, int y){
 	}
 }
 
-void jumpRightDown(int x, int y){
+void Board::jumpRightDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false){cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
@@ -95,7 +115,7 @@ void jumpRightDown(int x, int y){
 	}
 }
 
-void jumpLeftDown(int x, int y){
+void Board::jumpLeftDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
@@ -118,7 +138,7 @@ void jumpLeftDown(int x, int y){
 	}
 }
 
-void jumpRightUp(int x, int y){
+void Board::jumpRightUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
@@ -141,7 +161,7 @@ void jumpRightUp(int x, int y){
 	}
 }
 
-void jumpLeftUp(int x, int y){
+void Board::jumpLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
