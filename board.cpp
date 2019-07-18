@@ -73,7 +73,7 @@ bool Board::canMoveLeftDown(int x, int y){ return isEmpty(x+1,y-1);}
 
 void Board::moveRightUp(int x, int y){
 	//invaild conditions
-	if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
+	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x == 0 || y == 7){cout<< "Invalid Move!";}
 	else if(boardArray[x-1][y+1] == 2){cout<< "Invalid Move!";}
