@@ -48,7 +48,7 @@ void Board::moveRightDown(int x, int y){
 	else if(isEmpty(x+1, y+1) == false){cout<< "Invalid Move!";}
 	//move the piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		boardArray[x+1][y+1] = 1;
 	}
 }
@@ -64,7 +64,7 @@ void Board::moveLeftDown(int x, int y){
 	else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!";}
 	//move the piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		boardArray[x+1][y-1] = 1;
 	}
 }
@@ -79,7 +79,7 @@ void Board::moveRightUp(int x, int y){
 	else if(boardArray[x-1][y+1] == 2){cout<< "Invalid Move!";}
 	//move the piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		boardArray[x-1][y+1] = 2;
 	}
 }
@@ -95,7 +95,7 @@ void Board::moveLeftUp(int x, int y){
 	else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	//move the piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		boardArray[x-1][y-1] = 2;
 	}
 }
@@ -110,11 +110,11 @@ void Board::jumpRightDown(int x, int y){
 	else if(boardArray[x+1][y+1] == 1){cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		int newX = x+2;
 		int newY = y+2;
 		boardArray[newX][newY] = 1;
-		remove(x+1,y+1);
+		removePiece(x+1,y+1);
 		//Check if the piece can jump again
 		if(isLeftDown2(newX, newY) == true){
 			jumLeftDown(newX, newY);
@@ -136,11 +136,11 @@ void Board::jumpLeftDown(int x, int y){
 	else if(boardArray[x+2][y-2] == 1) {cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		int newX = x+2;
 		int newY = y-2;
 		boardArray[newX][newY] = 1;
-		remove(x+1,y-1);
+		removePiece(x+1,y-1);
 		//Check if the piece can jump again
 		if(isLeftDown2(newX, newY) == true){
 			jumLeftDown(newX, newY);
@@ -161,11 +161,11 @@ void Board::jumpRightUp(int x, int y){
 	else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		int newX = x-2;
 		int newY = y+2;
 		boardArray[newX][newY] = 2;
-		remove(x-1,y+1);
+		removePiece(x-1,y+1);
 		//Check if the piece can jump again
 		if(isLeftUp1(newX, newY) == true){
 			jumLeftUp(newX, newY);
@@ -186,11 +186,11 @@ void Board::jumpLeftUp(int x, int y){
 	else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
 	else{
-		remove(x,y);
+		removePiece(x,y);
 		int newX = x-2;
 		int newY = y-2;
 		boardArray[newX][newY] = 2;
-		remove(x-1,y-1);
+		removePiece(x-1,y-1);
 		//Check if the piece can jump again
 		if(isLeftUp1(newX, newY) == true){
                 	jumLeftUp(newX, newY);
