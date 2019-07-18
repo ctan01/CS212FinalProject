@@ -10,7 +10,7 @@ public:
     //CONSTURCTOR
     board(){
 
-	board = {
+	boardArray = {
 		{0,1,0,1,0,1,0,1},
 		{1,0,1,0,1,0,1,0},
 		{0,1,0,1,0,1,0,1},
@@ -21,7 +21,17 @@ public:
 		{2,0,2,0,2,0,2,0}
 		};
     }
-
+    
+    void remove(int x, int y){board[x][y] = 0;}
+    bool isValid(int x, int y){return (x+y)%2 != 0;}
+    bool isEmpty(int x, int y){return board[x][y] == 0;}
+    bool is1(int x, int y){return board[x][y] == 1;}
+    bool is2(int x, int y){return board[x][y] == 2;}
+    bool isLeftUp1(int x, int y){return board[x-1][y-1] == 1;}
+    bool isRightUp1(int x, int y){return board[x-1][y+1] == 1;}
+    bool isLeftDown2(int x, int y){return board[x+1][y-1] == 2;}
+    bool isLeftUp2(int x, int y){return board[x+1][y+1] == 2;}
+	
     //INITIALIZE THE GAME
     void initialize board(){
 	    for(int i = 0; i < 8; i++){
@@ -93,7 +103,7 @@ public:
 	    //invaild conditions
 	    if(isVaild(x,y) == false) {cout<< "Invalid Input!";}
 	    else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
-	    else if(x == 0 || y == 7)cout<< "Invalid Move!";}
+	    else if(x == 0 || y == 7){cout<< "Invalid Move!";}
 	    else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	    //move the piece
 	    else{
@@ -206,17 +216,6 @@ public:
 		    }
 	    }
     }
-
-	
-    void remove(int x, int y){board[x][y] = 0;}
-    bool isValid(int x, int y){return (x+y)%2 != 0;}
-    bool isEmpty(int x, int y){return board[x][y] == 0;}
-    bool is1(int x, int y){return board[x][y] == 1;}
-    bool is2(int x, int y){return board[x][y] == 2;}
-    bool isLeftUp1(int x, int y){return board[x-1][y-1] == 1;}
-    bool isRightUp1(int x, int y){return board[x-1][y+1] == 1;}
-    bool isLeftDown2(int x, int y){return board[x+1][y-1] == 2;}
-    bool isLeftUp2(int x, int y){return board[x+1][y+1] == 2;}
    
 private:
 	static int boardArray[8][8];
