@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include "board.h"
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ class treeNode{
     }
   
   //copy constructor
-    treeNode(treNode input){
+    treeNode(btNode input){
       
      numChildren = input.numChildren;
      capChildren = input.capChildren;
@@ -178,31 +179,56 @@ class treeNode{
     
    }
            
-  treeNode** bfs(treeNode* inParent){
+  treeNode** bfs(treeNode* inParent)
+  {  
+    queue<treeNode> bfsQueue;
+    bfsQueue.push(inParent);
     
-    queue<board> bfsQueue;
-    bfsQueue.push(root);
-    
-    while( !bfsQueue.front().winningState())
+    while( !bfsQueue.empty() && !bfsQueue.front().data.winningState())
     {
-      genChild(bfsQueue.top()); //if the front Node in queue is not in a winning state, then generate all children of this Node.
+      genChild(bfsQueue.front()); //if the front Node in queue is not in a winning state, then generate all children of this Node.
       
-        for(int i=0;i<numChildren;i++)
+        for(int i=0;i<bfsQueue.front().numChildren;i++)
           {
-           bfsQueue.push(children [i]) // push all the generated children of inParent into the queue
+           bfsQueue.push(bfsQueue.front()* children [i]); // push all the generated children of inParent into the queue
           }
+      
+      if(bfsQueue.front().data.winningState())
+      {
+        return bfsQueue.front();      
+      }
       
       bfsQueue.pop();   // now we can pop the front Node that is not in a winning state.
      
     }      
   }
               
-  void dfs(treeNode* parent){
+  treeNode** dfs(treeNode* inParent)
     
+{   
     
+    stack<board> dfsStack;
     
+    stack.push(inParent);
     
-  }
+    while( !dfsStack.top().winningState())
+   {
+     genChild(dfsStack.top()); //generate all the children top the top item on the stack.
+      
+        for(int i=0;i<dfsStack.top().numChildren;i++)
+          {
+           dfsStack.push(dfsStack.top()* children [i]); // push all the generated children of inParent into the stack
+          }
+               
+      if(dfsStack.top().data.winningState())
+      {
+        return dfsStack.top();      
+      }
+      
+      dfsStack.pop();
+      
+   }
+}
            
   private:
     board data;
