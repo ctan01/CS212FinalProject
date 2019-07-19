@@ -10,7 +10,8 @@ public:
     //CONSTURCTOR
     Board(){
 
-	boardArray = {
+	    //It must be an array whose dimensions has to specified
+	int boardArray[8][8] = {
 		{0,1,0,1,0,1,0,1},
 		{1,0,1,0,1,0,1,0},
 		{0,1,0,1,0,1,0,1},
@@ -22,15 +23,16 @@ public:
 		};
     }
 
-    void removePiece(int x, int y){board[x][y] = 0;}
+	//boardArray was replaced instead of board in all of these functions
+    void removePiece(int x, int y){boardArray[x][y] = 0;}
     bool isValid(int x, int y){return (x+y)%2 != 0;}
-    bool isEmpty(int x, int y){return board[x][y] == 0;}
-    bool is1(int x, int y){return board[x][y] == 1;}
-    bool is2(int x, int y){return board[x][y] == 2;}
-    bool isLeftUp1(int x, int y){return board[x-1][y-1] == 1;}
-    bool isRightUp1(int x, int y){return board[x-1][y+1] == 1;}
-    bool isLeftDown2(int x, int y){return board[x+1][y-1] == 2;}
-    bool isLeftUp2(int x, int y){return board[x+1][y+1] == 2;}
+    bool isEmpty(int x, int y){return boardArray[x][y] == 0;}
+    bool is1(int x, int y){return boardArray[x][y] == 1;}
+    bool is2(int x, int y){return boardArray[x][y] == 2;}
+    bool isLeftUp1(int x, int y){return boardArray[x-1][y-1] == 1;}
+    bool isRightUp1(int x, int y){return boardArray[x-1][y+1] == 1;}
+    bool isLeftDown2(int x, int y){return boardArray[x+1][y-1] == 2;}
+    bool isLeftUp2(int x, int y){return boardArray[x+1][y+1] == 2;}
 
     //INITIALIZE THE GAME
     void initializeBoard();
