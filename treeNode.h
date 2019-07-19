@@ -81,7 +81,7 @@ class treeNode{
                 }
             
             //Jump Left Down
-               else if(inParent.data.canJumpLeftDown(i,j)) 
+             if(inParent.data.canJumpLeftDown(i,j)) 
                 { 
                  
                  treeNode tempNode = inParent; // store the parent state to tempNode before making the move 
@@ -94,7 +94,7 @@ class treeNode{
             //If it can move down it will move.
             
             //Move Right Down 
-               else if(inParent.data.canMoveRightDown(i,j)) //
+             if(inParent.data.canMoveRightDown(i,j)) //
                
                {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
                  
@@ -105,7 +105,7 @@ class treeNode{
                } 
             
              //Move Left Down
-               else if(inParent.data.canMoveLeftDown(i,j)) //
+             if(inParent.data.canMoveLeftDown(i,j)) //
                
                {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
                  
@@ -138,7 +138,7 @@ for(int i = 7; i < 0; i--){
                 }
             
             //Jump Left Up
-               else if(inParent.data.canJumpLeftUp(i,j)) 
+             if(inParent.data.canJumpLeftUp(i,j)) 
                 { 
                  
                  treeNode tempNode = inParent; // store the parent state to tempNode before making the move 
@@ -151,7 +151,7 @@ for(int i = 7; i < 0; i--){
             //If it can move down it will move.
             
             //Move Right Up
-               else if(inParent.data.canMoveRightUp(i,j)) //
+             if(inParent.data.canMoveRightUp(i,j)) //
                
                {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
                  
@@ -162,7 +162,7 @@ for(int i = 7; i < 0; i--){
                } 
             
              //Move Left Up
-               else if(inParent.data.canMoveLeftUp(i,j)) //
+             if(inParent.data.canMoveLeftUp(i,j)) //
                
                {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
                  
