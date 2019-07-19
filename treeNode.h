@@ -58,17 +58,15 @@ class treeNode{
   
   void generateChild(treeNode* inParent){
      
-    for(int i=0; i< 8;i++)
-     {
-      for(int j=0; j<8; j++)
-        {
+   for(int i=0; i< 8;i++){
+    for(int j=0; j<8; j++){
       
            board tempData; // temp data to store the board state so it wouldn't change the parent data when making a move. 
           
            if(inParent.data.winningState()) break; //check to see if the parent's board is already a winning state. 
           
-           if(inParent.data[i][j]==1) //1 is on top of the board, representing pieces on top of the board. 
-          {
+           if(inParent.data[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
+     
             
             //If it can jump down it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
             
@@ -118,8 +116,12 @@ class treeNode{
                } 
             
            }
-         
-          
+    }
+}    
+
+
+for(int i = 7; i < 0; i--){
+	for(int j = 7; j < 0; j--){
            if(inParent.data[i][j]==2) //2 is on bottom of the board, representing pieces on bottom of the board. 
           {
             
@@ -173,8 +175,8 @@ class treeNode{
            }
           
           
-         }
-       }
+    }
+}
     
     
    }
