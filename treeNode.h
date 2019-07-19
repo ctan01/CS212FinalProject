@@ -120,7 +120,7 @@ class treeNode{
            }
          
           
-           if(inParent.data[i][j]==1) //2 is on bottom of the board, representing pieces on bottom of the board. 
+           if(inParent.data[i][j]==2) //2 is on bottom of the board, representing pieces on bottom of the board. 
           {
             
             //If it can jump up it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
