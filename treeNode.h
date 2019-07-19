@@ -122,7 +122,7 @@ class treeNode{
 
 for(int i = 7; i < 0; i--){
 	for(int j = 7; j < 0; j--){
-           if(inParent.data[i][j]==2) //2 is on bottom of the board, representing pieces on bottom of the board. 
+           if(inParent.data[i][j]==1) // look for the 1 that is cloest to the opponent's side
           {
             
             //If it can jump up it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
