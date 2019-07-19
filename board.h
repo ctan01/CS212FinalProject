@@ -61,7 +61,7 @@ public:
 
 
 private:
-	static int boardArray[8][8];
+	int boardArray[8][8];
 
 };
 
