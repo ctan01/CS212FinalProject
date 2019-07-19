@@ -20,7 +20,7 @@ class treeNode{
     }
   
   //copy constructor
-    treeNode(btNode input){
+    treeNode(treNode input){
       
      numChildren = input.numChildren;
      capChildren = input.capChildren;
