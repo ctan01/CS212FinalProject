@@ -30,7 +30,7 @@ public:
     bool isLeftUp1(int x, int y){return board[x-1][y-1] == 1;}
     bool isRightUp1(int x, int y){return board[x-1][y+1] == 1;}
     bool isLeftDown2(int x, int y){return board[x+1][y-1] == 2;}
-    bool isLeftUp2(int x, int y){return board[x+1][y+1] == 2;}
+    bool isRightDown2(int x, int y){return board[x+1][y+1] == 2;}
 
     //INITIALIZE THE GAME
     void initializeBoard();
