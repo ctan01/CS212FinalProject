@@ -2,34 +2,22 @@
 using namespace std;
 
 void Board::initializeBoard(){
-	for(int i = 0; i < 8; i++){
-		for(int j = 0; j < 8; j++){
-			boardArray[i][j] = 0;
-			if(isValid(i, j)){
-				if(i == 3 || i == 4){
-					boardArray[i][j] = 0;
-				}
-				else if(i > 4){
-					boardArray[i][j] = 2;
-				}
-				else{
-					boardArray[i][j] = 1;
-				}
-			}
-		}
-		cout << endl;
-	    }
+	int boardArray[8][8] = {{0,1,0,1,0,1,0,1},
+		{1,0,1,0,1,0,1,0},
+		{0,1,0,1,0,1,0,1},
+		{0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0},
+		{2,0,2,0,2,0,2,0},
+		{0,2,0,2,0,2,0,2},
+		{2,0,2,0,2,0,2,0}};
     }
 
 void Board::printBoard(){
-    	cout << "|----|----|----|----|----|----|----|----|" << endl;
-	for(int i = 0; i < 8; i--){
+	for(int i = 0; i < 8; i++){
 		for(int j = 0; j < 8; j++){
-			cout << "| " << boardArray[i][j] << "  ";
+			cout << boardArray[i][j] << "  ";
 		}
-		cout << "|" << endl << "|----|----|----|----|----|----|----|----|" << endl;
-	}
-	    cout << endl;
+		cout << endl;
     }
 
 bool Board::winningState(){
