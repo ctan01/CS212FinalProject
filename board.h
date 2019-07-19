@@ -22,15 +22,15 @@ public:
 		};
     }
 
-    void removePiece(int x, int y){board[x][y] = 0;}
+    void removePiece(int x, int y){boardArray[x][y] = 0;}
     bool isValid(int x, int y){return (x+y)%2 != 0;}
-    bool isEmpty(int x, int y){return board[x][y] == 0;}
-    bool is1(int x, int y){return board[x][y] == 1;}
-    bool is2(int x, int y){return board[x][y] == 2;}
-    bool isLeftUp1(int x, int y){return board[x-1][y-1] == 1;}
-    bool isRightUp1(int x, int y){return board[x-1][y+1] == 1;}
-    bool isLeftDown2(int x, int y){return board[x+1][y-1] == 2;}
-    bool isRightDown2(int x, int y){return board[x+1][y+1] == 2;}
+    bool isEmpty(int x, int y){return boardArray[x][y] == 0;}
+    bool is1(int x, int y){return boardArray[x][y] == 1;}
+    bool is2(int x, int y){return boardArray[x][y] == 2;}
+    bool isLeftUp1(int x, int y){return boardArray[x-1][y+1] == 1;}
+    bool isRightUp1(int x, int y){return boardArray[x-1][y+1] == 1;}
+    bool isLeftDown2(int x, int y){return boardArray[x+1][y-1] == 2;}
+    bool isRightDown2(int x, int y){return boardArray[x+1][y+1] == 2;}
 
     //INITIALIZE THE GAME
     void initializeBoard();
