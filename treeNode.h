@@ -16,12 +16,12 @@ class treeNode{
     numChildren = 0;
     capChildren = 100;
     data = board();
-    parent = new btNode;
-    children = new btNode*[capChildren];
+    parent = new treeNode;
+    children = new treeNode*[capChildren];
     }
   
   //copy constructor
-    treeNode(btNode input){
+    treeNode(treeNode input){
       
      numChildren = input.numChildren;
      capChildren = input.capChildren;
@@ -29,7 +29,8 @@ class treeNode{
       
      parent = input.parent;
       
-     children = new btNode*[capChildren];
+     children = new treeNode*[capChildren];
+	    
      for(int i = 0; i< input.numChildren;i++){ 
       children[i] = input.children[i]; 
      }
