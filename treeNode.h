@@ -59,6 +59,22 @@ class treeNode{
   
   void generateChild(treeNode* inParent){
      
+//WINNING MOVE
+for(int i = 0; i < 8; i++){
+	if(boardArray[1][i] == 2){
+		if(canMoveRightUp(1, i) == true){
+			moveRihgtUp(1, i);
+			return;
+		}
+		else if(canMoveLeftUp(1, i) == true){
+			moveLeftUp(1, i);
+			return;
+		}
+	}
+}
+	
+	  
+	  
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
       
