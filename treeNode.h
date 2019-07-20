@@ -57,23 +57,9 @@ class treeNode{
      
    }
   
-  void generateChild(treeNode* inParent){
-     
-//WINNING MOVE
-for(int i = 0; i < 8; i++){
-	if(boardArray[1][i] == 2){
-		if(canMoveRightUp(1, i) == true){
-			moveRihgtUp(1, i);
-			return;
-		}
-		else if(canMoveLeftUp(1, i) == true){
-			moveLeftUp(1, i);
-			return;
-		}
-	}
-}
 	
-	  
+	
+  void generateChild(treeNode* inParent){	  
 	  
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
@@ -196,7 +182,45 @@ for(int i = 7; i < 0; i--){
     
     
    }
-           
+          
+  void SmakrtGenChildren(treeNode inParent){
+	  
+	  
+   	//generate Winning move first. WINNING MOVE
+for(int i = 0; i < 8; i++){
+	if(boardArray[1][i] == 2){
+		if(canMoveRightUp(1, i) == true){
+			treeNode tempNode = inParent;
+			tempNode.moveRihgtUp(1, i);
+			 inParent.addChild(tempNode);
+		
+		}
+		else if(canMoveLeftUp(1, i) == true){
+			treeNode tempNode = inParent;
+			tempNode.moveLeftUp(1, i);
+			inParent.addChild(tempNode);
+		}
+	}
+	
+	if(boardArray[6][i]==1){
+		if(canMoveRightDown(6,i)==true){
+			treeNode tempNode = inParent;
+			tempNode.moveRightDown(6,i);
+			inParent.addChild(tempNode);
+		}
+		else if(canMoveLeftDown(6,i)==true){
+			treeNode tempNode = inParent;
+			tempNode.moveLeftDown(6,i);
+			inParent.addChild(tempNode);
+		}
+		
+	}
+}	  
+	  
+  }
+	
+	
+	
   treeNode** bfs(treeNode* inParent)
   {  
     queue<treeNode> bfsQueue;
