@@ -9,7 +9,14 @@ Board::Board()
     {
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < 8; j++){
-		    
+		    boardArray[i][j] = 0;
+                if(isValid(i, j)){
+                    if(i == 3 || i == 4){
+                        boardArray[i][j] = 0;
+                    }
+                    else if(i > 4){
+                        boardArray[i][j] = 2;
+
 		    
 
 void Board::printBoard(){
