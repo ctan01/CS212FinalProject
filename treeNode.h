@@ -15,13 +15,13 @@ class treeNode{
     treeNode(){
     numChildren = 0;
     capChildren = 100;
-    data = board();
+    data = Board();
     parent = new treeNode;
     children = new treeNode*[capChildren];
     }
   
   //copy constructor
-    treeNode(treeNode input){
+    treeNode(const treeNode &input){
       
      numChildren = input.numChildren;
      capChildren = input.capChildren;
@@ -249,7 +249,7 @@ for(int i = 7; i < 0; i--){
 }
            
   private:
-    board data;
+    Board data;
     size_t numChildren;
     size_t capChildren;
     treeNode *parent;
