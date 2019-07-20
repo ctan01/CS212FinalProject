@@ -1,16 +1,16 @@
 #include "board.h"
 using namespace std;
 
-void Board::initializeBoard(){
-	int boardArray[8][8] = {{0,1,0,1,0,1,0,1},
-		{1,0,1,0,1,0,1,0},
-		{0,1,0,1,0,1,0,1},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{2,0,2,0,2,0,2,0},
-		{0,2,0,2,0,2,0,2},
-		{2,0,2,0,2,0,2,0}};
-    }
+//Constructor and Initialization together
+Board::Board()
+{
+    //if object is not created already then make a new one and initialize it
+    if(objectAlreadyCreated == false)
+    {
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+		    
+		    
 
 void Board::printBoard(){
 	for(int i = 0; i < 8; i++){
