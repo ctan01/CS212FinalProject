@@ -114,7 +114,11 @@ void Board::jumpRightDown(int x, int y){
 }
 
 //check to see if it can jump Right downward.
-bool Board::canJumpRightDown(int x, int y){ return boardArray[x+1][y+1]==2;}
+bool Board::canJumpRightDown(int x, int y){ 
+	if(boardArray[x+1][y+1]==2 && boardArray[x+2][y+2] == 0)
+		return true;
+	else return false;
+}
 
 void Board::jumpLeftDown(int x, int y){
 	//invaild conditions
