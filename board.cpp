@@ -46,8 +46,7 @@ bool Board::winningState(){
 
 void Board::moveRightDown(int x, int y){
 	//invaild conditions
-	if(isValid(x,y) == false){cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
+	if(isValid(x,y) == false){cout<< "Invalid Input!";
 	else if(x == 7 || y == 7){cout<< "Invalid Move!";}
 	else if(isEmpty(x+1, y+1) == false){cout<< "Invalid Move!";}
 	//move the piece
@@ -63,7 +62,6 @@ bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);}
 void Board::moveLeftDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x == 7 || y == 0) {cout<< "Invalid Move!";}
 	else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!";}
 	//move the piece
@@ -78,7 +76,6 @@ bool Board::canMoveLeftDown(int x, int y){ return isEmpty(x+1,y-1);}
 void Board::moveRightUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x == 0 || y == 7){cout<< "Invalid Move!";}
 	else if(boardArray[x-1][y+1] == 2){cout<< "Invalid Move!";}
 	//move the piece
@@ -94,7 +91,6 @@ bool Board::canMoveRightUp(int x, int y){ return isEmpty(x-1,y+1);}
 void Board::moveLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x == 0 || y == 0) {cout<< "Invalid Move!";}
 	else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	//move the piece
@@ -109,7 +105,6 @@ bool Board::canMoveLefttUp(int x, int y){ return isEmpty(x-1,y-1);}
 void Board::jumpRightDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false){cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x >= 6 || y >= 6){cout<< "Invalid Move!";}
 	else if(boardArray[x+1][y+1] == 1){cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
@@ -139,7 +134,6 @@ bool Board::canJumpRightDown(int x, int y){
 void Board::jumpLeftDown(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x >= 6 || y <= 1) {cout<< "Invalid Move!";}
 	else if(boardArray[x+2][y-2] == 1) {cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
@@ -168,7 +162,6 @@ bool Board::canJumpLeftDown(int x, int y){
 void Board::jumpRightUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x <= 1 || y >= 6) {cout<< "Invalid Move!";}
 	else if(boardArray[x-1][y+1] == 2) {cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
@@ -197,7 +190,6 @@ bool Board::canJumpRightUp(int x, int y){
 void Board::jumpLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(isEmpty(x,y) == true){cout << "Invalid Input!";}
 	else if(x <= 1 || y<= 1) {cout<< "Invalid Move!";}
 	else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
 	//move the piece and delete the opponents piece
