@@ -58,10 +58,9 @@ class treeNode{
   
   void generateChild(treeNode* inParent){
      
-   for(int i=0; i< 8;i++){
-    for(int j=0; j<8; j++){
+for(int i=0; i< 8;i++){
+        for(int j=0; j<8; j++){
       
-           board tempData; // temp data to store the board state so it wouldn't change the parent data when making a move. 
           
            if(inParent.data.winningState()) break; //check to see if the parent's board is already a winning state. 
           
