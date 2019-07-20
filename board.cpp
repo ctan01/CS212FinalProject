@@ -16,8 +16,17 @@ Board::Board()
                     }
                     else if(i > 4){
                         boardArray[i][j] = 2;
-
-		    
+			    }
+                    else{
+                        boardArray[i][j] = 1;
+                    }
+                }
+            }
+        }
+    }
+    //object created
+    objectAlreadyCreated = true;
+}
 
 void Board::printBoard(){
 	for(int i = 0; i < 8; i++){
