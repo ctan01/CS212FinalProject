@@ -15,10 +15,18 @@ public:
     bool isEmpty(int x, int y){return boardArray[x][y] == 0;}
     bool is1(int x, int y){return boardArray[x][y] == 1;}
     bool is2(int x, int y){return boardArray[x][y] == 2;}
-    bool isLeftUp1(int x, int y){return boardArray[x-1][y+1] == 1;}
+	
+    bool isLeftUp1(int x, int y){return boardArray[x-1][y-1] == 1;}
+    bool isLeftUp2(int x , int y){return boardArray[x-1][y-1] == 2;}
+
     bool isRightUp1(int x, int y){return boardArray[x-1][y+1] == 1;}
+    bool isRightUp2(int x , int y){return boardArray[x-1][y+1] == 2;}
+
+    bool isLeftDown1(int x , int y){return boardArray[x+1][y-1] == 1;}
     bool isLeftDown2(int x, int y){return boardArray[x+1][y-1] == 2;}
-    bool isRightDown2(int x, int y){return boardArray[x+1][y+1] == 2;}
+
+    bool isRightDown1(int x , int y){return boardArray[x+1][y+1] == 1;}
+    bool isRightDown2(int x , int y){return boardArray[x+1][y+1] == 2;}
 
     //INITIALIZE THE GAME
     void initializeBoard();
@@ -49,7 +57,8 @@ public:
 
 
 private:
-	int boardArray[8][8];
+	static int boardArray[8][8];
+	static bool objectAlreadyCreated;
 
 };
 
