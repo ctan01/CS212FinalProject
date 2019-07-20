@@ -8,19 +8,7 @@ class Board{
 
 public:
     //CONSTURCTOR
-    Board(){
-
-	boardArray = {
-		{0,1,0,1,0,1,0,1},
-		{1,0,1,0,1,0,1,0},
-		{0,1,0,1,0,1,0,1},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{2,0,2,0,2,0,2,0},
-		{0,2,0,2,0,2,0,2},
-		{2,0,2,0,2,0,2,0}
-		};
-    }
+    Board();
 
     void removePiece(int x, int y){boardArray[x][y] = 0;}
     bool isValid(int x, int y){return (x+y)%2 != 0;}
