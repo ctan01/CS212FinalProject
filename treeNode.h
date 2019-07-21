@@ -300,9 +300,17 @@ for(int i = 0; i < 8; i++){
 }
 
 treeNode* greedyAlg(treeNode* inParent){
-	treeNode *curr;
+	treeNode *curr; 
 	curr = inParent;
-	
+	while(!curr.data.winningState()){//find the node that contains the board that have a piece closest to the enemy's edge.
+		for(int k = 0; k < numChildren; k++){
+			for(int i=0; i< 8;i++){
+       				for(int j=0; j<8; j++){
+					
+				}
+			}
+		}
+	}
 }
 
            
