@@ -38,6 +38,6 @@ treeNode* greedyAlg(treeNode* inParent){
 			}
 				
 		}//k
-		
+		generateChild(children[k]);
 	}
 }
