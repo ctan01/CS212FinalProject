@@ -47,7 +47,7 @@ class treeNode{
     }
   
   void setChild( treeNode **entry, int pos ){   children[pos] = entry; }
-  
+ 
   
    treeNode* getChild(int y){
       if(children[y] == NULL)
@@ -82,8 +82,7 @@ class treeNode{
 	
 	
    void generateChild(treeNode* inParent){
-
-	   bool oneMoved==true;
+if(oneMove == true){
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
 
@@ -98,8 +97,6 @@ for(int i=0; i< 8;i++){
             //Jump Right Down
                if(inParent->data.canJumpRightDown(i,j))
                 {
-		       
-		 
                  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
                  tempNode.data.jumpRightDown(i , j); // Make the move with the tempNode
@@ -145,8 +142,9 @@ for(int i=0; i< 8;i++){
            }
     }
 }
+}
 
-
+if(oneMove == false){
 for(int i = 7; i < 0; i--){
 	for(int j = 7; j < 0; j--){
            if(inParent->data.boardArray[i][j]==1) // look for the 1 that is cloest to the opponent's side
@@ -202,7 +200,7 @@ for(int i = 7; i < 0; i--){
            }
     }
 }
-
+}
 
 }
           
@@ -294,6 +292,8 @@ for(int i = 0; i < 8; i++){
       
    }
 }
+	
+
            
    private:
     Board data;
