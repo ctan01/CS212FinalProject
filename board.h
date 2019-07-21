@@ -54,6 +54,10 @@ public:
     bool canJumpLeftUp(int x, int y);
     bool canJumpRightDown(int x, int y);
     bool canJumpLeftDown(int x, int y);
+	
+    //Count the amount of Ones and Twos on the board. 	
+    int countOne();
+    int countTwo();
 
 
 private:
