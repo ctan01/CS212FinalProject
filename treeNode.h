@@ -9,6 +9,10 @@
 using namespace std;
 
 class treeNode{
+	
+	global:size_t countTurn=1; // global value to keep track of the turns of the pieces. 
+				   //initialize count to be odd, because black piece moves first in the original state. 
+	
   public:
   
   //constructor
@@ -72,27 +76,19 @@ class treeNode{
  void addChild( treeNode *entry ){
 
      *children[numChildren] = entry;
-     //we also have to make children to point to their parent node
+     //we have to make children to point to their parent node
      //so parent pointer is assigned the address of the current node which is parent of newly created child
      children[numChildren]->parent = this;
       numChildren++;
    }
   
-size_t treeLevel(treeNode* root){
-	size_t count = 0;
-	Node *curr = new Node;
-	curr = root;
-	while(curr != NULL){
-		curr = curr -> children;
-		count++;
-	}
-	return count++;
-}
 	
 	
 	
    void generateChild(treeNode* inParent){
-if(oneMove == true){
+	
+	   
+	if(countTurn %2!=0){ // if countTurn is odd, red piece moves. 
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
 
@@ -154,7 +150,7 @@ for(int i=0; i< 8;i++){
 }
 }
 
-if(oneMove == false){
+	if(countTurn%2==0){ // if countTurn is even, white piece moves
 for(int i = 7; i < 0; i--){
 	for(int j = 7; j < 0; j--){
            if(inParent->data.boardArray[i][j]==1) // look for the 1 that is cloest to the opponent's side
@@ -311,6 +307,7 @@ for(int i = 0; i < 8; i++){
     size_t capChildren;
     treeNode *parent;
     treeNode *children[capChildren];
+    
 };
 
 #endif
