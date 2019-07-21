@@ -93,55 +93,55 @@ for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
 
 
-           if(inParent->data.winningState()) break; //check to see if the parent's board is already a winning state.
+           if(inParent.data.winningState()) break; //check to see if the parent's board is already a winning state.
 
-           if(inParent->data.boardArray[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
+           if(inParent.data.boardArray[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
 
 
             //If it can jump down it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
 
             //Jump Right Down
-               if(inParent->data.canJumpRightDown(i,j))
+               if(inParent.data.canJumpRightDown(i,j))
                 {
                  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
                  tempNode.data.jumpRightDown(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
                 }
 
             //Jump Left Down
-             if(inParent->data.canJumpLeftDown(i,j))
+             if(inParent.data.canJumpLeftDown(i,j))
                 {
 
                  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move
 
                  tempNode.data.jumpLeftDown(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
                 }
 
             //If it can move down it will move.
 
             //Move Right Down
-             if(inParent->data.canMoveRightDown(i,j)) //
+             if(inParent.data.canMoveRightDown(i,j)) //
 
                {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
                  tempNode.data.moveRightDown(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
 
                }
 
              //Move Left Down
-             if(inParent->data.canMoveLeftDown(i,j)) //
+             if(inParent.data.canMoveLeftDown(i,j)) //
 
                {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
                  tempNode.data.moveLeftDown(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
 
                }
 
@@ -153,23 +153,23 @@ for(int i=0; i< 8;i++){
 	if(countTurn%2==0){ // if countTurn is even, white piece moves
 for(int i = 7; i < 0; i--){
 	for(int j = 7; j < 0; j--){
-           if(inParent->data.boardArray[i][j]==1) // look for the 1 that is cloest to the opponent's side
+           if(inParent.data[i][j]==1) // look for the 1 that is cloest to the opponent's side
           {
 
             //If it can jump up it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
 
             //Jump Right Up
-               if(inParent->data.canJumpRightUp(i,j))
+               if(inParent.data.canJumpRightUp(i,j))
                 {
                  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
                  tempNode.data.jumpRightUp(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
                 }
 
             //Jump Left Up
-             if(inParent->data.canJumpLeftUp(i,j))
+             if(inParent.data.canJumpLeftUp(i,j))
                 {
 
                  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move
@@ -182,7 +182,7 @@ for(int i = 7; i < 0; i--){
             //If it can move down it will move.
 
             //Move Right Up
-             if(inParent->data.canMoveRightUp(i,j)) //
+             if(inParent.data.canMoveRightUp(i,j)) //
 
                {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
@@ -193,7 +193,7 @@ for(int i = 7; i < 0; i--){
                }
 
              //Move Left Up
-             if(inParent->data.canMoveLeftUp(i,j)) //
+             if(inParent.data.canMoveLeftUp(i,j)) //
 
                {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
@@ -215,7 +215,7 @@ for(int i = 7; i < 0; i--){
 	  
    	//generate Winning move first. WINNING MOVE
 for(int i = 0; i < 8; i++){
-	if(boardArray[1][i] == 2){
+	if(inParent.data[1][i] == 2){
 		if(canMoveRightUp(1, i) == true){
 			treeNode tempNode = inParent;
 			tempNode.moveRihgtUp(1, i);
@@ -229,7 +229,7 @@ for(int i = 0; i < 8; i++){
 		}
 	}
 	
-	if(boardArray[6][i]==1){
+	if(inParent.data[1][i] ==1){
 		if(canMoveRightDown(6,i)==true){
 			treeNode tempNode = inParent;
 			tempNode.moveRightDown(6,i);
@@ -284,10 +284,8 @@ for(int i = 0; i < 8; i++){
    {
      generateChild(dfsStack.top()); //generate all the children top the top item on the stack.
       
-        for(int i=0;i<dfsStack.top().numChildren;i++)
-          {
-           dfsStack.push(dfsStack.top()* children [i]); // push all the generated children of inParent into the stack
-          }
+           dfsStack.push(dfsStack.top()* children [i]); // push the first generated children of inParent into the stack
+      
                
       if(dfsStack.top().data.winningState())
       {
@@ -298,9 +296,85 @@ for(int i = 0; i < 8; i++){
       
    }
 }
+	
+	
+	
+	
+	 treeNode* UCS(treeNode *inParent,int x) //Uniform Cost Search
+{
+ 
+  if(x==1){ // search for path that least white piece got taken out of the game.
+  
+  	  stack<treeNode> stack1;
+	  stack<treeNode> stack2; 
+	  
+   	  stack1.push(inParent);
+     
+   	while(!stack1.empty() && !stack1.top().data.winningState()){
+        
+           	  generateChildren(stack1.top()); //generate all the children of the Node has highest priority.
+	  
+	 	int minCost = -1;
+	 	int minCostPos = 0;
+	  
+  	 for(int i =0; i<stack1.top().numChildren; i++){ // using the for loop to find the position of children that cost the least 1 piece.
+		  
+		if((stack1.top().countOne() - stack1.top()->children[i].countOne()) < minCost){
+			  
+			  minCost = stack1.top().countOne() - stack1.top()->children[i].countOne();
+		 	 minCostPos = i;
+        	}
+  	 }
+	  
+	  //Now we store the child that cost the least piece to stack2; 
+	  //clear stack1, and push that child to stack1;
+	  
+	  stack2.push(stack1.top()->children[minCostPos]);
+	  stack1.pop();
+	  stack1.push(stack2.top());
+	  stack2.pop(); 
+    }
+	  
+    	 return stack1.top(); //when the while loop terminates, the winnign state with the most 2 piece will be returned.
+  }
 
+		 
+ 	if(x==2){ // search for path that least white piece got taken out of the game.
+  
+  		  stack<treeNode> stack1;
+		  stack<treeNode> stack2; 
+	  
+   		  stack1.push(inParent);
+     
+   	while(!stack1.empty() && !stack1.top().data.winningState()){
+        
+            	 generateChildren(stack1.top()); //generate all the children of the Node has highest priority.
+	  
+		 int minCost = -1;
+		 int minCostPos = 0;
+	  
+  	 for(int i =0; i<stack1.top().numChildren; i++){ // using the for loop to find the position of children that cost the least 2 piece.
+		  
+		if((stack1.top().countTwo() - stack1.top()->children[i].countTwo()) < minCost){
+			  
+			  minCost = stack1.top().countTwo() - stack1.top()->children[i].countTwo();
+			  minCostPos = i;
+        }
+   }
+	  
+	  //Now we store the child that cost the least piece to stack2; 
+	  //clear stack1, and push that child to stack1;
+	  
+	  stack2.push(stack1.top()->children[minCostPos]);
+	  stack1.pop();
+	  stack1.push(stack2.top());
+	  stack2.pop(); 
+    }
+	  
+    	 return stack1.top(); //when the while loop terminates, the winnign state with the most 2 piece will be returned.
+    ]
 
-
+}
            
    private:
     Board data;
