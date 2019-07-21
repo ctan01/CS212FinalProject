@@ -44,5 +44,6 @@ treeNode* greedyAlg(treeNode* inParent){
 				
 		}//k
 		generateChild(children[cloestIndex]);
+		curr = curr -> children;
 	}
 }
