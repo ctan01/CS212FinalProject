@@ -210,7 +210,7 @@ for(int i = 7; i < 0; i--){
 
 }
           
-  void SmakrtGenChildren(treeNode inParent){
+  void winningMove(treeNode inParent){
 	  
 	  
    	//generate Winning move first. WINNING MOVE
@@ -298,7 +298,10 @@ for(int i = 0; i < 8; i++){
       
    }
 }
+
+treeNode** greedyAlg(treeNode* inParent){
 	
+}
 
            
    private:
