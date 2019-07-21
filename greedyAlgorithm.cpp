@@ -6,6 +6,7 @@ treeNode* greedyAlg(treeNode* inParent){
 	int closest2i = 0;
 	int cloestIndex = 0;
 	int disFromEdge; 
+	int closestDis = 7;
 	board temp2;
 	while(!curr.data.winningState()){//find the node that contains the board that have a piece closest to the enemy's edge.
 		for(int k = 0; k < numChildren; k++){
@@ -31,8 +32,12 @@ treeNode* greedyAlg(treeNode* inParent){
 			else{
 				disFromEdge = 7 - cloest1i;
 			}
+			if(disFromEdge < closestDis){
+				closestDis = disFromEdge;
+				cloestIndex = k;
+			}
 				
-		}
+		}//k
 		
 	}
 }
