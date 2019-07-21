@@ -248,7 +248,7 @@ for(int i = 0; i < 8; i++){
 	
 	
 	
-  treeNode** bfs(treeNode* inParent)
+  treeNode* bfs(treeNode* inParent)
   {  
     queue<treeNode> bfsQueue;
     bfsQueue.push(inParent);
@@ -272,7 +272,7 @@ for(int i = 0; i < 8; i++){
     }      
   }
               
-  treeNode** dfs(treeNode* inParent)
+  treeNode* dfs(treeNode* inParent)
     
 {   
     
@@ -299,7 +299,9 @@ for(int i = 0; i < 8; i++){
    }
 }
 
-treeNode** greedyAlg(treeNode* inParent){
+treeNode* greedyAlg(treeNode* inParent){
+	treeNode *curr;
+	curr = inParent;
 	
 }
 
