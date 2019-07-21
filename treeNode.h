@@ -284,10 +284,9 @@ for(int i = 0; i < 8; i++){
    {
      genChild(dfsStack.top()); //generate all the children top the top item on the stack.
       
-        for(int i=0;i<dfsStack.top().numChildren;i++)
-          {
-           dfsStack.push(dfsStack.top()* children [i]); // push all the generated children of inParent into the stack
-          }
+        
+           dfsStack.push(dfsStack.top()* children [0]); // push the first generated children of inParent into the stack
+      
                
       if(dfsStack.top().data.winningState())
       {
