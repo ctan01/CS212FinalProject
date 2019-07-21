@@ -83,6 +83,7 @@ class treeNode{
 	
    void generateChild(treeNode* inParent){
 
+	   bool oneMoved==true;
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
 
@@ -97,6 +98,8 @@ for(int i=0; i< 8;i++){
             //Jump Right Down
                if(inParent->data.canJumpRightDown(i,j))
                 {
+		       
+		 
                  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
                  tempNode.data.jumpRightDown(i , j); // Make the move with the tempNode
