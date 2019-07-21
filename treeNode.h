@@ -14,17 +14,26 @@ class treeNode{
   //constructor
     treeNode(){
     numChildren = 0;
-    capChildren = 100;
     data = Board();
-    parent = new treeNode;
-    children = new treeNode*[capChildren];
+    parent = NULL;
+    for(int i=0; i<capChildren; i++)
+    {
+        children[i] = NULL;
+    }
+    }
+	
+	//we cannot create objects of same class in the constructor by using new keyword
+//so we have to make a function named 'initialize' to initialize the pointers of a treenode
+    void initialize()
+    {
+        parent = new treeNode;
+        children = new treeNode*[capChildren];
     }
   
   //copy constructor
     treeNode(const treeNode &input){
       
      numChildren = input.numChildren;
-     capChildren = input.capChildren;
      data = input.data;
       
      parent = input.parent;
@@ -37,10 +46,10 @@ class treeNode{
       
     }
   
-  void setChild( treeNode entry, int pos ){   children[pos] = entry; }
+  void setChild( treeNode **entry, int pos ){   children[pos] = entry; }
   
  
-  void addChild( treeNode entry ){
+  void addChild( treeNode **entry ){
      
      children[numChildren] = entry;
       numChildren++;
@@ -49,12 +58,13 @@ class treeNode{
   treeNode** getChild(int y){return children [y];}
   
   
-  treeNode** getAllChild(){
-     
-     for( int i = 0; i<numChildren;i++){
-       
-        return children[i];}
-     
+ void addChild( treeNode *entry ){
+
+     *children[numChildren] = entry;
+     //we also have to make children to point to their parent node
+     //so parent pointer is assigned the address of the current node which is parent of newly created child
+     children[numChildren]->parent = this;
+      numChildren++;
    }
   
 	
@@ -272,12 +282,12 @@ for(int i = 0; i < 8; i++){
    }
 }
            
-  private:
+   private:
     Board data;
     size_t numChildren;
     size_t capChildren;
     treeNode *parent;
-    treeNode **children;
+    treeNode *children[capChildren];
 };
 
 #endif
