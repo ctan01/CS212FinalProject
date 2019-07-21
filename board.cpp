@@ -214,4 +214,30 @@ bool Board::canJumpLeftUp(int x, int y){
 		return true;
 	else return false;
 }
+	
+int Board:: countOne(){
+	int count;
+	for(int i=0;i<8;i++){
+		for(int j=0;j<8;j++){
+			if(boardArray[i][j] ==1){
+				count++;
+			}
+		}
+	}
+	return count;
+}
+	
+	
+int Board:: countTwo(){
+	int count;
+	for(int i=0;i<8;i++){
+		for(int j=0;j<8;j++){
+			if(boardArray[i][j] ==2){
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
 
