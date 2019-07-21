@@ -255,7 +255,7 @@ for(int i = 0; i < 8; i++){
     
     while( !bfsQueue.empty() && !bfsQueue.front().data.winningState())
     {
-      genChild(bfsQueue.front()); //if the front Node in queue is not in a winning state, then generate all children of this Node.
+      generateChild(bfsQueue.front()); //if the front Node in queue is not in a winning state, then generate all children of this Node.
       
         for(int i=0;i<bfsQueue.front().numChildren;i++)
           {
@@ -282,7 +282,7 @@ for(int i = 0; i < 8; i++){
     
     while( !dfsStack.top().winningState())
    {
-     genChild(dfsStack.top()); //generate all the children top the top item on the stack.
+     generateChild(dfsStack.top()); //generate all the children top the top item on the stack.
       
         for(int i=0;i<dfsStack.top().numChildren;i++)
           {
