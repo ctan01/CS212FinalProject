@@ -1,3 +1,8 @@
+#include "board.h"
+#include "treeNode.h"
+using namespace std;
+
+
 treeNode* greedyAlg(treeNode* inParent){
 	treeNode *curr; 
 	curr = inParent;
