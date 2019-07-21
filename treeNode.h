@@ -81,129 +81,127 @@ class treeNode{
 	
 	
 	
-  void generateChild(treeNode* inParent){	  
-	  
+   void generateChild(treeNode* inParent){
+
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
-      
-          
-           if(inParent.data.winningState()) break; //check to see if the parent's board is already a winning state. 
-          
-           if(inParent.data[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
-     
-            
+
+
+           if(inParent->data.winningState()) break; //check to see if the parent's board is already a winning state.
+
+           if(inParent->data.boardArray[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
+
+
             //If it can jump down it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
-            
-            //Jump Right Down 
-               if(inParent.data.canJumpRightDown(i,j)) 
-                { 
-                 treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
-                 
-                 tempNode.data.jumpRightDown(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
+
+            //Jump Right Down
+               if(inParent->data.canJumpRightDown(i,j))
+                {
+                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+
+                 tempNode.data.jumpRightDown(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
                 }
-            
+
             //Jump Left Down
-             if(inParent.data.canJumpLeftDown(i,j)) 
-                { 
-                 
-                 treeNode tempNode = inParent; // store the parent state to tempNode before making the move 
-                 
-                 tempNode.data.jumpLeftDown(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
+             if(inParent->data.canJumpLeftDown(i,j))
+                {
+
+                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move
+
+                 tempNode.data.jumpLeftDown(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
                 }
-            
+
             //If it can move down it will move.
-            
-            //Move Right Down 
-             if(inParent.data.canMoveRightDown(i,j)) //
-               
-               {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
-                 
-                 tempNode.data.moveRightDown(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
-               
-               } 
-            
+
+            //Move Right Down
+             if(inParent->data.canMoveRightDown(i,j)) //
+
+               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+
+                 tempNode.data.moveRightDown(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+
+               }
+
              //Move Left Down
-             if(inParent.data.canMoveLeftDown(i,j)) //
-               
-               {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
-                 
-                 tempNode.data.moveLeftDown(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
-               
-               } 
-            
+             if(inParent->data.canMoveLeftDown(i,j)) //
+
+               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+
+                 tempNode.data.moveLeftDown(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+
+               }
+
            }
     }
-}    
+}
 
 
 for(int i = 7; i < 0; i--){
 	for(int j = 7; j < 0; j--){
-           if(inParent.data[i][j]==1) // look for the 1 that is cloest to the opponent's side
+           if(inParent->data.boardArray[i][j]==1) // look for the 1 that is cloest to the opponent's side
           {
-            
+
             //If it can jump up it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
-            
+
             //Jump Right Up
-               if(inParent.data.canJumpRightUp(i,j)) 
-                { 
-                 treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
-                 
-                 tempNode.data.jumpRightUp(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
+               if(inParent->data.canJumpRightUp(i,j))
+                {
+                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+
+                 tempNode.data.jumpRightUp(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
                 }
-            
+
             //Jump Left Up
-             if(inParent.data.canJumpLeftUp(i,j)) 
-                { 
-                 
-                 treeNode tempNode = inParent; // store the parent state to tempNode before making the move 
-                 
-                 tempNode.data.jumpLeftUp(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
+             if(inParent->data.canJumpLeftUp(i,j))
+                {
+
+                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move
+
+                 tempNode.data.jumpLeftUp(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
                 }
-            
+
             //If it can move down it will move.
-            
+
             //Move Right Up
-             if(inParent.data.canMoveRightUp(i,j)) //
-               
-               {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
-                 
-                 tempNode.data.moveRightUp(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
-               
-               } 
-            
+             if(inParent->data.canMoveRightUp(i,j)) //
+
+               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+
+                 tempNode.data.moveRightUp(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+
+               }
+
              //Move Left Up
-             if(inParent.data.canMoveLeftUp(i,j)) //
-               
-               {  treeNode tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
-                 
-                 tempNode.data.moveLeftUp(); // Make the move with the tempNode
-                 
-                 inParent.addChild(tempNode); //add the tempNode to the parent's children
-               
-               } 
-            
+             if(inParent->data.canMoveLeftUp(i,j)) //
+
+               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+
+                 tempNode.data.moveLeftUp(i , j); // Make the move with the tempNode
+
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+
+               }
+
            }
-          
-          
     }
 }
-    
-    
-   }
+
+
+}
           
   void SmakrtGenChildren(treeNode inParent){
 	  
