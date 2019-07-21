@@ -48,14 +48,25 @@ class treeNode{
   
   void setChild( treeNode **entry, int pos ){   children[pos] = entry; }
   
- 
-  void addChild( treeNode **entry ){
-     
-     children[numChildren] = entry;
-      numChildren++;
-   }
   
-  treeNode** getChild(int y){return children [y];}
+   treeNode* getChild(int y){
+      if(children[y] == NULL)
+      {
+          return NULL;
+      }
+      else
+      {
+          return children[y];
+    }
+  }
+	
+   treeNode** getAllChild(){
+
+     for( int i = 0; i<numChildren;i++){
+
+        return children[i];}
+
+   }
   
   
  void addChild( treeNode *entry ){
@@ -67,6 +78,7 @@ class treeNode{
       numChildren++;
    }
   
+	
 	
 	
   void generateChild(treeNode* inParent){	  
