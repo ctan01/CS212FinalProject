@@ -78,6 +78,16 @@ class treeNode{
       numChildren++;
    }
   
+size_t treeLevel(treeNode* root){
+	size_t count = 0;
+	Node *curr = new Node;
+	curr = root;
+	while(curr != NULL){
+		curr = curr -> children;
+		count++;
+	}
+	return count++;
+}
 	
 	
 	
