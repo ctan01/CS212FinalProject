@@ -24,11 +24,11 @@ treeNode* greedyAlg(treeNode* inParent){
 					}
 				}
 			}
-			if((cloest2i - 0) > (7 - cloest1i)){
+			if(cloest2i > (7 - cloest1i)){
 				disFromEdge = cloest2i;
 			}
 			else{
-				disFromEdge = cloest1i;
+				disFromEdge = 7 - cloest1i;
 			}
 				
 		}
