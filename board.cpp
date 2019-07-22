@@ -45,7 +45,7 @@ void Board::printBoard(){
 		}
 		cout << endl;
     }
-
+}
 bool Board::winningState(){
 	for(int i = 0; i < 8; i++){
 	if(boardArray[0][i] == 2 || boardArray[7][i] == 1)
@@ -56,7 +56,7 @@ bool Board::winningState(){
 
 void Board::moveRightDown(int x, int y){
 	//invaild conditions
-	if(isValid(x,y) == false){cout<< "Invalid Input!";
+	if(isValid(x,y) == false){cout<< "Invalid Input!";}
 	else if(x == 7 || y == 7){cout<< "Invalid Move!";}
 	else if(isEmpty(x+1, y+1) == false){cout<< "Invalid Move!";}
 	//move the piece
