@@ -51,8 +51,13 @@ bool Board::winningState(){
 	if(boardArray[0][i] == 2 || boardArray[7][i] == 1)
 		return true;
 	}
-	return false;
+	else if(countOne == 0 || coutTwo == 0)
+		return true;
+	else return false;
 }
+
+//check to see if the piece can move Right Downward without jumping.
+bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);}
 
 void Board::moveRightDown(int x, int y){
 	//invaild conditions
@@ -65,9 +70,6 @@ void Board::moveRightDown(int x, int y){
 		boardArray[x+1][y+1] = 1;
 	}
 }
-
-//check to see if the piece can move Right Downward without jumping.
-bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);}
 
 bool Board::canMoveLeftDown(int x, int y){ return isEmpty(x+1,y-1);}
 
@@ -82,6 +84,8 @@ void Board::moveLeftDown(int x, int y){
 	}
 }
 
+bool Board::canMoveRightUp(int x, int y){ return isEmpty(x-1,y+1);}
+
 void Board::moveRightUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
@@ -94,8 +98,7 @@ void Board::moveRightUp(int x, int y){
 	}
 }
 
-
-bool Board::canMoveRightUp(int x, int y){ return isEmpty(x-1,y+1);}
+bool Board::canMoveLefttUp(int x, int y){ return isEmpty(x-1,y-1);}
 
 void Board::moveLeftUp(int x, int y){
 	//invaild conditions
@@ -109,7 +112,12 @@ void Board::moveLeftUp(int x, int y){
 	}
 }
 
-bool Board::canMoveLefttUp(int x, int y){ return isEmpty(x-1,y-1);}
+//check to see if it can jump Right downward.
+bool Board::canJumpRightDown(int x, int y){ 
+	if(boardArray[x+1][y+1]==2 && boardArray[x+2][y+2] == 0)
+		return true;
+	else return false;
+}
 
 void Board::jumpRightDown(int x, int y){
 	//invaild conditions
@@ -137,9 +145,9 @@ void Board::jumpRightDown(int x, int y){
 	}
 }
 
-//check to see if it can jump Right downward.
-bool Board::canJumpRightDown(int x, int y){ 
-	if(boardArray[x+1][y+1]==2 && boardArray[x+2][y+2] == 0)
+
+bool Board::canJumpLeftDown(int x, int y){ 
+	if(boardArray[x+1][y-1]==2 && boardArray[x+2][y-2] == 0)
 		return true;
 	else return false;
 }
@@ -170,8 +178,8 @@ void Board::jumpLeftDown(int x, int y){
 	}
 }
 
-bool Board::canJumpLeftDown(int x, int y){ 
-	if(boardArray[x+1][y-1]==2 && boardArray[x+2][y-2] == 0)
+bool Board::canJumpRightUp(int x, int y){
+	if(boardArray[x-1][y+1]==1 && boardArray[x-2][y+2] == 0)
 		return true;
 	else return false;
 }
@@ -200,12 +208,6 @@ void Board::jumpRightUp(int x, int y){
 			else{ jumpLeftUp(newX,newY);}
 		}
 	}
-}
-
-bool Board::canJumpRightUp(int x, int y){
-	if(boardArray[x-1][y+1]==1 && boardArray[x-2][y+2] == 0)
-		return true;
-	else return false;
 }
 
 bool Board::canJumpLeftUp(int x, int y){
