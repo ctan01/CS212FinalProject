@@ -1,12 +1,21 @@
 #include "board.h"
 #include "treeNode.h"
-
+#include <iostream>
+using namespace std;
 
 int main(){
-  board testBoard;
-  testBoard.printBoard();
-  testBoard.moveLeftDown(2,3);
-  testBoard.printBoard();
-  testBoard.moveLeftDown(0,2);//expected to print "Invalid Move"
-  
+  treeNode initialBoard;
+  treeNode winningBoard;
+  queue<treeNode> outputQueue;
+  winningBoard=treeNode.bfs(initialBoard);
+  if(winningBoard.getParent()!=NULL)
+  {
+    outputQueue.push(winningBoard);
+    winningBoard=(winningBoard.getParent());
+  }
+  if(outputQueue!=NULL)
+  {
+   outputQueue.front().printBoard();
+  }
+  return 0;
 }
