@@ -64,7 +64,7 @@ class treeNode{
     }
   }
 	
-   treeNode** getAllChild(){
+   treeNode* getAllChild(){
 
      for( int i = 0; i<numChildren;i++){
 
