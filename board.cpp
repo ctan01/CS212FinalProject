@@ -4,6 +4,16 @@ using namespace std;
 //Constructor and Initialization together
 Board::Board()
 {
+/*
+	{0,1,0,1,0,1,0,1},
+	{1,0,1,0,1,0,1,0},
+	{0,1,0,1,0,1,0,1},
+	{0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0},
+	{2,0,2,0,2,0,2,0},
+	{0,2,0,2,0,2,0,2},
+	{2,0,2,0,2,0,2,0}
+*/
     //if object is not created already then make a new one and initialize it
     if(objectAlreadyCreated == false)
     {
