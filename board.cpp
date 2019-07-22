@@ -69,19 +69,18 @@ void Board::moveRightDown(int x, int y){
 //check to see if the piece can move Right Downward without jumping.
 bool Board::canMoveRightDown(int x, int y){ return isEmpty(x+1,y+1);}
 
+bool Board::canMoveLeftDown(int x, int y){ return isEmpty(x+1,y-1);}
+
 void Board::moveLeftDown(int x, int y){
 	//invaild conditions
-	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
-	else if(x == 7 || y == 0) {cout<< "Invalid Move!";}
-	else if(boardArray[x+1][y-1] == 1) {cout<< "Invalid Move!";}
+	if(x == 7 || y == 0) {cout<< "Invalid Move!";}
+	else if(canMoveLeftDown(x, y) == false) {cout<< "Invalid Move!";}
 	//move the piece
 	else{
 		removePiece(x,y);
 		boardArray[x+1][y-1] = 1;
 	}
 }
-
-bool Board::canMoveLeftDown(int x, int y){ return isEmpty(x+1,y-1);}
 
 void Board::moveRightUp(int x, int y){
 	//invaild conditions
