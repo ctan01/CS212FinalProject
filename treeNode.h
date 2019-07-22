@@ -50,19 +50,10 @@ class treeNode{
       
     }
   
-  void setChild( treeNode **entry, int pos ){   children[pos] = entry; }
+  void setChild( treeNode *entry, int pos） {     children[pos] = entry;  }
  
-   treeNode* getParent(int y){
-	if(parent[y] == NULL)
-      {
-          return NULL;
-      }
-      else
-      {
-          return parent[y];
-    }
-  }
-   treeNode* getChild(int y){
+	
+  treeNode* getChild(int y){
       if(children[y] == NULL)
       {
           return NULL;
