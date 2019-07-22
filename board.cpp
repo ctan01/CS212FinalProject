@@ -124,11 +124,15 @@ void Board::jumpRightDown(int x, int y){
 		boardArray[newX][newY] = 1;
 		removePiece(x+1,y+1);
 		//Check if the piece can jump again
-		if(isLeftDown2(newX, newY) == true){
-			jumpLeftDown(newX, newY);
-		}
-		if(isRightDown2(newX, newY) == true){
-			jumpRightDown(newX, newY);
+			while(canJumpRightDown(newX,newY)==true||canJumpLeftDown(newX,newY))
+		{
+
+			if(canJumpRightDown(newX,newY)==true)
+			{
+				jumpRightDown(newX,newY);
+			}
+
+			else{ jumpLeftDown(newX,newY);}
 		}
 	}
 }
@@ -153,11 +157,15 @@ void Board::jumpLeftDown(int x, int y){
 		boardArray[newX][newY] = 1;
 		removePiece(x+1,y-1);
 		//Check if the piece can jump again
-		if(isLeftDown2(newX, newY) == true){
-			jumpLeftDown(newX, newY);
-		}
-		if(isRightDown2(newX, newY) == true){
-			jumpRightDown(newX, newY);
+			while(canJumpRightDown(newX,newY)==true||canJumpLeftDown(newX,newY))
+		{
+
+			if(canJumpRightDown(newX,newY)==true)
+			{
+				jumpRightDown(newX,newY);
+			}
+
+			else{ jumpLeftDown(newX,newY);}
 		}
 	}
 }
@@ -181,11 +189,15 @@ void Board::jumpRightUp(int x, int y){
 		boardArray[newX][newY] = 2;
 		removePiece(x-1,y+1);
 		//Check if the piece can jump again
-		if(isLeftUp1(newX, newY) == true){
-			jumpLeftUp(newX, newY);
-		}
-		if(isRightUp1(newX, newY) == true){
-			jumpRightUp(newX, newY);
+			while(canJumpRightUp(newX,newY)==true||canJumpLeftUp(newX,newY))
+		{
+
+			if(canJumpRightUp(newX,newY)==true)
+			{
+				jumpRightUp(newX,newY);
+			}
+
+			else{ jumpLeftUp(newX,newY);}
 		}
 	}
 }
@@ -216,11 +228,15 @@ void Board::jumpLeftUp(int x, int y){
 		boardArray[newX][newY] = 2;
 		removePiece(x-1,y-1);
 		//Check if the piece can jump again
-		if(isLeftUp1(newX, newY) == true){
-                	jumpLeftUp(newX, newY);
-		}
-		if(isRightUp1(newX, newY) == true){
-	  		jumpRightUp(newX, newY);
+			while(canJumpRightUp(newX,newY)==true||canJumpLeftUp(newX,newY))
+		{
+
+			if(canJumpRightUp(newX,newY)==true)
+			{
+				jumpRightUp(newX,newY);
+			}
+
+			else{ jumpLeftUp(newX,newY);}
 		}
 	}
 }
