@@ -196,11 +196,18 @@ bool Board::canJumpRightUp(int x, int y){
 	else return false;
 }
 
+bool Board::canJumpLeftUp(int x, int y){
+	if(boardArray[x-1][y-1]==1 && boardArray[x-2][y-2] == 0)
+		return true;
+	else return false;
+}
+
 void Board::jumpLeftUp(int x, int y){
 	//invaild conditions
 	if(isValid(x,y) == false) {cout<< "Invalid Input!";}
 	else if(x <= 1 || y<= 1) {cout<< "Invalid Move!";}
 	else if(boardArray[x-1][y-1] == 2) {cout<< "Invalid Move!";}
+	else if(canJumpLeftUp(x, y) == false){cout << "Invalid Move!";}
 	//move the piece and delete the opponents piece
 	else{
 		removePiece(x,y);
@@ -218,11 +225,6 @@ void Board::jumpLeftUp(int x, int y){
 	}
 }
 
-bool Board::canJumpLeftUp(int x, int y){
-	if(boardArray[x-1][y-1]==1 && boardArray[x-2][y-2] == 0)
-		return true;
-	else return false;
-}
 	
 int Board:: countOne(){
 	int count;
