@@ -95,7 +95,7 @@ for(int i=0; i< 8;i++){
 
            if(inParent.data.winningState()) break; //check to see if the parent's board is already a winning state.
 
-           if(inParent.data.boardArray[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
+           if(inParent.data[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
 
 
             //If it can jump down it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
