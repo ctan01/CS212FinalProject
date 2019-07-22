@@ -61,8 +61,8 @@ public:
 
 
 private:
-	static int boardArray[8][8];
-	static bool objectAlreadyCreated;
+	 int boardArray[8][8];
+	 bool objectAlreadyCreated;
 
 };
 
