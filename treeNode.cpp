@@ -1,36 +1,37 @@
+#ifndef __TREENODE_CPP__
+#define __TREENODE_CPP__
+
 #include "treeNode.h"
 using namespace std;
 
 treeNode::treeNode(){
-    numChildren = 0;
+    /*numChildren = 0;
     data = Board();
     parent = NULL;
-    for(int i=0; i<capChildren; i++){
-        children[i] = NULL;
+    for(int i=0; i<capChildren; i++)
+    {
+        *children[i] = NULL;
+    }*/
     }
-}
 
-void treeNode::initialize(){
-    parent = new treeNode;
-    children = new treeNode*[capChildren];
-}
-
-treeNode::treeNode(const treeNode &input){
+  
+  //copy constructor
+    treeNode::treeNode( treeNode *input){
       
-     numChildren = input.numChildren;
-     data = input.data;
+     numChildren = input->numChildren;
+     data = input->data;
      
-     parent = input.parent;
-      
-     children = new treeNode*[capChildren];
+     parent = input->parent;
 	    
-     for(int i = 0; i< input.numChildren;i++){ 
-      children[i] = input.children[i]; 
+     for(int i = 0; i< input -> numChildren;i++){ 
+      children[i] = input->children[i]; 
      }
       
-}
+    }
+ 
+	
+  treeNode* treeNode::getChild(int y){
 
- treeNode* treeNode::getChild(int y){
       if(children[y] == NULL)
       {
           return NULL;
@@ -40,16 +41,17 @@ treeNode::treeNode(const treeNode &input){
           return children[y];
     }
   }
-
- treeNode* treeNode::getAllChild(){
+	
+  treeNode* treeNode::getAllChild(){
 
      for( int i = 0; i<numChildren;i++){
 
         return children[i];}
 
    }
-
-void treeNode::addChild( treeNode *entry ){
+  
+  
+ void treeNode::addChild( treeNode *entry ){
 
      *children[numChildren] = entry;
      //we have to make children to point to their parent node
@@ -57,39 +59,44 @@ void treeNode::addChild( treeNode *entry ){
      children[numChildren]->parent = this;
       numChildren++;
    }
-
-void treeNode::generateChild(treeNode* inParent){
+   
+  
+	
+	
+	
+   void treeNode::generateChild(treeNode *inParent){
 	
 	   
 	if(countTurn %2!=0){ // if countTurn is odd, red piece moves. 
+
 for(int i=0; i< 8;i++){
         for(int j=0; j<8; j++){
 
 
-           if(inParent.data.winningState()) break; //check to see if the parent's board is already a winning state.
+           if(inParent->data.winningState()) return; //check to see if the parent's board is already a winning state.
 
-           if(inParent.data[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
+           if(inParent->data[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
 
 
             //If it can jump down it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
 
             //Jump Right Down
-               if(inParent.data.canJumpRightDown(i,j))
+               if(inParent->data.canJumpRightDown(i,j))
                 {
-                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+                 treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
-                 tempNode.data.jumpRightDown(i , j); // Make the move with the tempNode
+                 tempNode->data.jumpRightDown(i , j); // Make the move with the tempNode
 
-                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
                 }
 
             //Jump Left Down
-             if(inParent.data.canJumpLeftDown(i,j))
+             if(inParent->data.canJumpLeftDown(i,j))
                 {
 
-                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move
+                 treeNode *tempNode = inParent; // store the parent state to tempNode before making the move
 
-                 tempNode.data.jumpLeftDown(i , j); // Make the move with the tempNode
+                 tempNode->data.jumpLeftDown(i , j); // Make the move with the tempNode
 
                  inParent.addChild(&tempNode); //add the tempNode to the parent's children
                 }
@@ -97,22 +104,22 @@ for(int i=0; i< 8;i++){
             //If it can move down it will move.
 
             //Move Right Down
-             if(inParent.data.canMoveRightDown(i,j)) //
+             if(inParent->data.canMoveRightDown(i,j)) //
 
-               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+               {  treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
-                 tempNode.data.moveRightDown(i , j); // Make the move with the tempNode
+                 tempNode->data.moveRightDown(i , j); // Make the move with the tempNode
 
                  inParent.addChild(&tempNode); //add the tempNode to the parent's children
 
                }
 
              //Move Left Down
-             if(inParent.data.canMoveLeftDown(i,j)) //
+             if(inParent->data.canMoveLeftDown(i,j)) //
 
-               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+               {  treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
-                 tempNode.data.moveLeftDown(i , j); // Make the move with the tempNode
+                 tempNode->data.moveLeftDown(i , j); // Make the move with the tempNode
 
                  inParent.addChild(&tempNode); //add the tempNode to the parent's children
 
@@ -121,58 +128,62 @@ for(int i=0; i< 8;i++){
            }
     }
 }
+
 }
 
+
 	if(countTurn%2==0){ // if countTurn is even, white piece moves
+
 for(int i = 7; i < 0; i--){
-	for(int j = 7; j < 0; j--){
-           if(inParent.data[i][j]==1) // look for the 1 that is cloest to the opponent's side
+	   for(int j = 7; j < 0; j--){
+          
+           if(inParent->data[i][j]==1) // look for the 1 that is cloest to the opponent's side
           {
 
             //If it can jump up it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
 
             //Jump Right Up
-               if(inParent.data.canJumpRightUp(i,j))
+               if(inParent->data.canJumpRightUp(i,j))
                 {
-                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+                 treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
-                 tempNode.data.jumpRightUp(i , j); // Make the move with the tempNode
+                 tempNode->data.jumpRightUp(i , j); // Make the move with the tempNode
 
                  inParent.addChild(&tempNode); //add the tempNode to the parent's children
                 }
 
             //Jump Left Up
-             if(inParent.data.canJumpLeftUp(i,j))
+             if(inParent->data.canJumpLeftUp(i,j))
                 {
 
-                 treeNode tempNode = *inParent; // store the parent state to tempNode before making the move
+                 treeNode *tempNode = inParent; // store the parent state to tempNode before making the move
 
-                 tempNode.data.jumpLeftUp(i , j); // Make the move with the tempNode
+                 tempNode->data.jumpLeftUp(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
                 }
 
             //If it can move down it will move.
 
             //Move Right Up
-             if(inParent.data.canMoveRightUp(i,j)) //
+             if(inParent->data.canMoveRightUp(i,j)) //
 
-               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+               {  treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
-                 tempNode.data.moveRightUp(i , j); // Make the move with the tempNode
+                 tempNode->data.moveRightUp(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
 
                }
 
              //Move Left Up
-             if(inParent.data.canMoveLeftUp(i,j)) //
+             if(inParent->data.canMoveLeftUp(i,j)) //
 
-               {  treeNode tempNode = *inParent; // store the parent state to tempNode before making the move (called the copy constructor)
+               {  treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
-                 tempNode.data.moveLeftUp(i , j); // Make the move with the tempNode
+                 tempNode->data.moveLeftUp(i , j); // Make the move with the tempNode
 
-                 inParent->addChild(&tempNode); //add the tempNode to the parent's children
+                 inParent.addChild(&tempNode); //add the tempNode to the parent's children
 
                }
 
@@ -182,8 +193,8 @@ for(int i = 7; i < 0; i--){
 }
 
 }
-
-void treeNode::winningMove(treeNode inParent){
+          
+  /*void winningMove(treeNode inParent){
 	  
 	  
    	//generate Winning move first. WINNING MOVE
@@ -217,23 +228,25 @@ for(int i = 0; i < 8; i++){
 	}
 }	  
 	  
-  }
-
- treeNode* treeNode::bfs(treeNode* inParent)
+  }*/
+	
+	
+	
+  treeNode* treeNode::bfs(treeNode* inParent)
   {  
     queue<treeNode> bfsQueue;
     bfsQueue.push(inParent);
     
-    while( !bfsQueue.empty() && !bfsQueue.front().data.winningState())
+    while( !bfsQueue.empty() && !bfsQueue.front()->data.winningState())
     {
       generateChild(bfsQueue.front()); //if the front Node in queue is not in a winning state, then generate all children of this Node.
       
-        for(int i=0;i<bfsQueue.front().numChildren;i++)
+        for(int i=0;i<bfsQueue.front()->numChildren;i++)
           {
            bfsQueue.push(bfsQueue.front()* children [i]); // push all the generated children of inParent into the queue
           }
       
-      if(bfsQueue.front().data.winningState())
+      if(bfsQueue.front()->data.winningState())
       {
         return bfsQueue.front();      
       }
@@ -242,24 +255,22 @@ for(int i = 0; i < 8; i++){
      
     }      
   }
-
-
- treeNode* treeNode::dfs(treeNode* inParent)
+              
+  treeNode* treeNode::dfs(treeNode* inParent)
     
 {   
     
     stack<board> dfsStack;
-    
     stack.push(inParent);
     
-    while( !dfsStack.top().winningState())
+    while( !dfsStack.empty() && !dfsStack.top().winningState())
    {
      generateChild(dfsStack.top()); //generate all the children top the top item on the stack.
       
            dfsStack.push(dfsStack.top()* children [i]); // push the first generated children of inParent into the stack
       
                
-      if(dfsStack.top().data.winningState())
+      if(dfsStack.top()->data.winningState())
       {
         return dfsStack.top();      
       }
@@ -268,9 +279,11 @@ for(int i = 0; i < 8; i++){
       
    }
 }
-
-
-treeNode* treeNode::UCS(treeNode *inParent,int x) //Uniform Cost Search
+	
+	
+	
+	
+	 treeNode* treeNode::UCS(treeNode *inParent,int x) //Uniform Cost Search
 {
  
   if(x==1){ // search for path that least white piece got taken out of the game.
@@ -287,7 +300,7 @@ treeNode* treeNode::UCS(treeNode *inParent,int x) //Uniform Cost Search
 	 	int minCost = -1;
 	 	int minCostPos = 0;
 	  
-  	 for(int i =0; i<stack1.top().numChildren; i++){ // using the for loop to find the position of children that cost the least 1 piece.
+  	 for(int i =0; i<stack1.top()->numChildren; i++){ // using the for loop to find the position of children that cost the least 1 piece.
 		  
 		if((stack1.top().countOne() - stack1.top()->children[i].countOne()) < minCost){
 			  
@@ -342,6 +355,8 @@ treeNode* treeNode::UCS(treeNode *inParent,int x) //Uniform Cost Search
     }
 	  
     	 return stack1.top(); //when the while loop terminates, the winnign state with the most 2 piece will be returned.
-    ]
-
 }
+
+ void setChild( treeNode* entry, int pos ) { children[post] = entry; }
+
+#endif
