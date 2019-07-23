@@ -76,7 +76,7 @@ for(int i=0; i< 8;i++){
 
            if(inParent->data.winningState()) return; //check to see if the parent's board is already a winning state.
 
-           if(inParent->data.boardArray[i][j]==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
+           if(inParent->data.search(i,j)==2){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
 
 
             //If it can jump down it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
@@ -138,7 +138,7 @@ for(int i=0; i< 8;i++){
 for(int i = 7; i < 0; i--){
 	   for(int j = 7; j < 0; j--){
           
-           if(inParent->data.boardArray[i][j]==1) // look for the 1 that is cloest to the opponent's side
+           if(inParent->data.search(i,j)==1) // look for the 1 that is cloest to the opponent's side
           {
 
             //If it can jump up it will jump. Jump has higher priority than move. It will only try to move if it can't jump.
