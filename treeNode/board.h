@@ -8,7 +8,7 @@ class Board{
 
 public:
     //CONSTURCTOR
-    int boardArray[8][8];
+    
     Board();
 
     void removePiece(int x, int y){boardArray[x][y] = 0;}
@@ -62,7 +62,7 @@ public:
 
 
 private:
-	 
+	 int boardArray[8][8];
 	 bool objectAlreadyCreated;
 
 };
