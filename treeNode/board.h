@@ -16,7 +16,7 @@ public:
     bool isEmpty(int x, int y){return boardArray[x][y] == 0;}
     bool is1(int x, int y){return boardArray[x][y] == 1;}
     bool is2(int x, int y){return boardArray[x][y] == 2;}
-	
+    int search(int x,int y){return boardArray[x][y];}
     bool isLeftUp1(int x, int y){return boardArray[x-1][y-1] == 1;}
     bool isLeftUp2(int x , int y){return boardArray[x-1][y-1] == 2;}
 
