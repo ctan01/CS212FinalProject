@@ -74,7 +74,7 @@ treeNode::treeNode(){
 for(int i=0; i< 8;i++){
         for(int j=0; j<2; j++){
 
-/*
+
            if(inParent->data.winningState()) return; //check to see if the parent's board is already a winning state.
 
            if(inParent->data.search(i,j)==1){ // we look for the 2 that is cloest to the oppoenet's edge becuase it is the 2 that is closest to wining
@@ -104,7 +104,7 @@ for(int i=0; i< 8;i++){
                 }
 
             //If it can move down it will move.
-*/
+
             //Move Right Down
              if(inParent->data.canMoveRightDown(i,j)==true) //
 
@@ -117,7 +117,7 @@ for(int i=0; i< 8;i++){
                }}}}
 
              //Move Left Down
-          /*   if(inParent->data.canMoveLeftDown(i,j)==true) //
+            if(inParent->data.canMoveLeftDown(i,j)==true) //
 
                {  treeNode *tempNode = inParent; // store the parent state to tempNode before making the move (called the copy constructor)
 
@@ -193,7 +193,7 @@ for(int i = 7; i < 0; i--){
     }
 }
 }
-*/
+
 }
           
   /*void winningMove(treeNode inParent){
