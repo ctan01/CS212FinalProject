@@ -9,3 +9,11 @@
 4. A function for BFS and DFS.
 
 5. Three search algorithm or decision-making algorithm. 
+
+run the test.cpp which has main inside.
+what we did and what we couldn't solve:
+
+
+We debugged board class. it works perfectly. as you can see in the test.cpp. when it can move/jump, it will. block by other pawn or selected square has wrong pawn/empty will create error message. it also can double jump. those thing we all debugged.
+
+for tree class. it initializes. However, the generate child function meant to generate all outcomes under certain board, and add them into a treeNode *array. however, I put a print function under each if function and use a numChild to check how many outcomes it has. it works in the generate function. But once we put them into the array. it gives some crazy output. I think it has something to do with the pointer array and the link of parent in the addChild function. the bfs dfs should works perfectly if the addChild function work correctly. since its all recursion stack queue. the 3 algorithm we only can provide idea and the code. But we cant debug it since the addChild doesnt work.
